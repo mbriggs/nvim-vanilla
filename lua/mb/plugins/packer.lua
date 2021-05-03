@@ -20,26 +20,25 @@ return require('packer').startup(function()
   use 'sheerun/vim-polyglot'
   use 'haringsrob/nvim_context_vt'
 
+  use {'fatih/vim-go', run = ":GoInstallBinaries"}
+
   -- features
   use 'AndrewRadev/linediff.vim'
   use 'cohama/lexima.vim'
   use 'justinmk/vim-gtfo'
   use 'tyru/caw.vim'
-  use 'dense-analysis/ale'
-  use 'sbdchd/neoformat'
   use 'SirVer/ultisnips'
   use 'janko/vim-test'
-  use 'kassio/neoterm'
   use 'antoinemadec/FixCursorHold.nvim'
   use 'tjdevries/astronauta.nvim'
   use {'hrsh7th/nvim-compe', branch = 'master', config = function() require 'mb.plugins.compe' end}
   use {'kevinhwang91/nvim-bqf', config = function() require('bqf').setup({ auto_enable = true }) end}
   use {'glepnir/galaxyline.nvim', config = function() require 'mb.plugins.galaxyline' end}
   use {'kyazdani42/nvim-tree.lua', config = function() require 'mb.plugins.nvim-tree' end}
+  use {'tamago324/lir.nvim', requires = 'nvim-lua/plenary.nvim', config = function() require'mb.plugins.lir' end}
 
   -- git
-  use 'nvim-lua/plenary.nvim'
-  use 'lewis6991/gitsigns.nvim'
+  use {'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim'}
   use {'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim', config = function() require'mb.plugins.neogit' end}
 
 
@@ -65,11 +64,14 @@ return require('packer').startup(function()
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-eunuch'
   use 'tpope/vim-surround'
-  use 'hoob3rt/lualine.nvim'
   use 'kyazdani42/nvim-web-devicons'
+  use {'mhartington/formatter.nvim', config = function() require'mb.plugins.formatter' end}
+  use {'folke/lsp-trouble.nvim', requires = "kyazdani42/nvim-web-devicons", config = function() require'mb.plugins.lsp-trouble' end}
+  -- use {'junegunn/fzf', run = './install --all' }
+  -- use {'junegunn/fzf.vim', config = function() require 'mb.plugins.fzf' end}
 
-  use {'junegunn/fzf', run = './install --all' }
-  use {'junegunn/fzf.vim', config = function() require 'mb.plugins.fzf' end}
+
+  use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}, config = function() require'mb.plugins.telescope' end}
 
   -- text objects
   use 'kana/vim-textobj-user'
