@@ -21,7 +21,6 @@ nnoremap('Q', '@q')
 -- close all other splits
 nmap('-', ':only<cr>')
 
-
 -- jump to matching pair
 nnoremap('<Leader>m', '%')
 

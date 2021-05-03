@@ -1,6 +1,7 @@
 local os = require'os'
 
 local home = os.getenv('HOME')
+local term = os.getenv('TERM')
 
 vim.o.inccommand = 'nosplit'
 vim.o.number = true
@@ -49,3 +50,8 @@ vim.g.mapleader = " "
 
 vim.cmd('syntax on')
 vim.cmd('filetype plugin indent on')
+vim.cmd('set mouse+=a')
+
+if term == 'screen' then
+    vim.cmd('set ttymouse=xterm2')
+end
