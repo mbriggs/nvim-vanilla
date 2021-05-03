@@ -16,7 +16,7 @@ return require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true}
 
   -- syntax
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require'mb.plugins.treesitter' end}
   use 'sheerun/vim-polyglot'
   use 'haringsrob/nvim_context_vt'
 
