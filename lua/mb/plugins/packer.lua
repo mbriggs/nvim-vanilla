@@ -28,7 +28,6 @@ return require('packer').startup(function()
   use 'tjdevries/astronauta.nvim'
   use 'b3nj5m1n/kommentary'
   use {'hrsh7th/nvim-compe', branch = 'master', config = function() require 'mb.plugins.compe' end}
-  use {'kevinhwang91/nvim-bqf', config = function() require('bqf').setup({ auto_enable = true }) end}
   use {'glepnir/galaxyline.nvim', config = function() require 'mb.plugins.galaxyline' end}
   use {'kyazdani42/nvim-tree.lua', config = function() require 'mb.plugins.nvim-tree' end}
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}, config = function() require'mb.plugins.telescope' end}

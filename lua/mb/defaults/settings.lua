@@ -3,9 +3,9 @@ local os = require'os'
 local home = os.getenv('HOME')
 local term = os.getenv('TERM')
 
+vim.api.nvim_command('set number')
+
 vim.o.inccommand = 'nosplit'
-vim.o.number = true
-vim.o.exrc = true
 vim.o.secure = true
 vim.o.splitright = true
 vim.o.showcmd = true
@@ -51,6 +51,9 @@ vim.g.mapleader = " "
 vim.cmd('syntax on')
 vim.cmd('filetype plugin indent on')
 vim.cmd('set mouse+=a')
+
+vim.cmd('set grepprg=rg\\ --vimgrep\\ --no-heading')
+vim.cmd('set grepformat=%f:%l:%c:%m,%f:%l:%m')
 
 if term == 'screen' then
     vim.cmd('set ttymouse=xterm2')
