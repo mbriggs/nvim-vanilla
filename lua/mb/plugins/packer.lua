@@ -30,6 +30,7 @@ return require('packer').startup(function()
   use {'hrsh7th/nvim-compe', branch = 'master', config = function() require 'mb.plugins.compe' end}
   use {'glepnir/galaxyline.nvim', config = function() require 'mb.plugins.galaxyline' end}
   use {'kyazdani42/nvim-tree.lua', config = function() require 'mb.plugins.nvim-tree' end}
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}, config = function() require'mb.plugins.telescope' end}
   use {'tamago324/lir.nvim', requires = 'nvim-lua/plenary.nvim', config = function() require'mb.plugins.lir' end}
 
