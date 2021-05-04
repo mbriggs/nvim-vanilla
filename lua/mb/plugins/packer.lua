@@ -39,7 +39,6 @@ return require('packer').startup(function()
 
   -- go
   use {'sebdah/vim-delve', config = function() require'mb.plugins.delve' end}
-  use {'glepnir/prodoc.nvim', config = function() require'mb.plugins.prodoc' end}
 
   -- colors
   use 'morhetz/gruvbox'

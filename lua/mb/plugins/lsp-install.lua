@@ -1,3 +1,4 @@
+-- oops
 local function setup_servers()
   require'lspinstall'.setup()
   local servers = require'lspinstall'.installed_servers()
@@ -7,7 +8,6 @@ local function setup_servers()
 end
 
 setup_servers()
-
 
 -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
 require'lspinstall'.post_install_hook = function ()
