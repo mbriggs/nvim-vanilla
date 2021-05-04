@@ -11,7 +11,11 @@ nmap('<Leader>so', '<esc>:luafile ~/.config/nvim/init.lua')
 vmap('<c-d>', 'mby`bp`bgv')
 nmap('<c-d>', 'mpyyp`p')
 
--- qf
+-- scrolling (m-j and m-k in osx)
+nnoremap('∆', '<c-e>')
+nnoremap('˚', '<c-y>')
+
+ -- qf
 nmap('<c-n>', ':cn<cr>')
 nmap('<c-p>', ':cp<cr>')
 
@@ -30,3 +34,33 @@ nnoremap('<s-l>', '$')
 
 -- why isn't it this by default??
 nnoremap('<s-y>', 'y$')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
