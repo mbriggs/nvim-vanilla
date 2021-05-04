@@ -18,9 +18,6 @@ nmap('<c-p>', ':cp<cr>')
 -- who needs loads of macro registers?
 nnoremap('Q', '@q')
 
--- close all other splits
-nmap('-', ':only<cr>')
-
 -- jump to matching pair
 nnoremap('<Leader>m', '%')
 

@@ -37,6 +37,9 @@ return require('packer').startup(function()
   use {'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim', config = function() require'gitsigns'.setup() end}
   use {'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim', config = function() require'mb.plugins.neogit' end}
 
+  -- go
+  use {'sebdah/vim-delve', config = function() require'mb.plugins.delve' end}
+  use {'glepnir/prodoc.nvim', config = function() require'mb.plugins.prodoc' end}
 
   -- colors
   use 'morhetz/gruvbox'
