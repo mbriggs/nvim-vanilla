@@ -41,6 +41,11 @@ return require('packer').startup(function()
   -- go
   use {'sebdah/vim-delve', config = function() require'mb.plugins.delve' end}
 
+  -- vimux
+  use 'benmills/vimux-golang'
+  use {'preservim/vimux', config = function() require'mb.plugins.vimux' end}
+  use {'christoomey/vim-tmux-navigator', config = function() require'mb.plugins.tmux-navigator' end}
+
   -- colors
   use 'morhetz/gruvbox'
   use 'joshdick/onedark.vim'
