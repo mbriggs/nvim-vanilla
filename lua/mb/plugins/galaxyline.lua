@@ -31,7 +31,7 @@ end
 
 section.left[1] = {
   FirstElement = {
-    -- provider = function() return '▊ ' end,
+    -- provider = function() return ' ▊' end,
     provider = function()
       return "  "
     end,
@@ -71,13 +71,6 @@ section.left[2] = {
   }
 }
 section.left[3] = {
-  FileIcon = {
-    provider = "FileIcon",
-    condition = buffer_not_empty,
-    highlight = {require("galaxyline.provider_fileinfo").get_file_icon_color, colors.line_bg}
-  }
-}
-section.left[4] = {
   FileName = {
     -- provider = "FileName",
     provider = function()
