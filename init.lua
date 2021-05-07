@@ -11,3 +11,4 @@ require'plenary.reload'.reload_module('mb', true)
 require'mb.utils'
 require'mb.defaults'
 require'mb.plugins'
+require'mb.ft'

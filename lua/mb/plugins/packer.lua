@@ -37,6 +37,7 @@ return require('packer').startup(function()
   -- git
   use {'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim', config = function() require'gitsigns'.setup() end}
   use {'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim', config = function() require'mb.plugins.neogit' end}
+  use {'pwntester/octo.nvim', config = function() require"octo".setup() end}
 
   -- go
   use {'sebdah/vim-delve', config = function() require'mb.plugins.delve' end}
