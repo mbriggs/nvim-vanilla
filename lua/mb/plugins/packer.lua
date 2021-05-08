@@ -12,7 +12,7 @@ vim.cmd [[packadd packer.nvim]]
 
 
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim', opt = true}
 
   -- syntax
@@ -58,7 +58,7 @@ return require('packer').startup(function()
   use 'Olical/vim-enmasse'
   use 'kana/vim-niceblock'
   use 'machakann/vim-highlightedyank'
-  use 'bkad/CamelCaseMotion'
+  use {'bkad/CamelCaseMotion', config = function() vim.g.camelcasemotion_key=',' end}
   use 'ConradIrwin/vim-bracketed-paste'
   use 'alvan/vim-closetag'
   use 'tpope/vim-repeat'
@@ -75,5 +75,4 @@ return require('packer').startup(function()
   use 'nvim-lua/lsp-status.nvim'
   use {'glepnir/lspsaga.nvim', config = function() require'mb.plugins.lspsaga' end}
   use {'folke/lsp-trouble.nvim', requires = "kyazdani42/nvim-web-devicons", config = function() require'mb.plugins.lsp-trouble' end}
-  use {'kabouzeid/nvim-lspinstall', config = function() require 'mb.plugins.lsp-install' end}
 end)

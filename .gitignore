@@ -1,3 +1,5 @@
 .netrwhist
 backup
 plugin
+vscode*
+lua-language-server

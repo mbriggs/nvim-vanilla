@@ -12,15 +12,55 @@ install_plugins:
 setup_python:
 	pip3 install --user --upgrade pynvim
 
-setup_lsp:
-	nvim "+LspInstall bashls" +qa
-	nvim "+LspInstall cssls" +qa
-	nvim "+LspInstall dockerls" +qa
-	nvim "+LspInstall html" +qa
-	nvim "+LspInstall jsonls" +qa
-	nvim "+LspInstall tsserver" +qa
-	nvim "+LspInstall yamlls" +qa
-	nvim "+LspInstall vimls" +qa
+setup_lsp: setup_lsp_html setup_lsp_css setup_lsp_lua setup_lsp_json
+	npm install -g yaml-language-server
+	GO111MODULE=on go get golang.org/x/tools/gopls@latest
+	brew install hashicorp/tap/terraform-ls
+	npm install -g typescript typescript-language-server
+	npm install -g dockerfile-language-server-nodejs
+
+setup_lsp_html:
+	curl -L -o vscode.tar.gz https://update.code.visualstudio.com/latest/linux-x64/stable
+	rm -rf vscode
+	mkdir vscode
+	tar -xzf vscode.tar.gz -C vscode --strip-components 1
+	rm vscode.tar.gz
+	rm -rf vscode-html
+	mkdir vscode-html
+	cp -r vscode/resources/app/extensions/node_modules vscode-html
+	cp -r vscode/resources/app/extensions/html-language-features vscode-html
+	rm -rf vscode
+
+setup_lsp_css:
+	curl -o vscode.tar.gz -L https://update.code.visualstudio.com/latest/linux-x64/stable
+	rm -rf vscode
+	mkdir vscode
+	tar -xzf vscode.tar.gz -C vscode --strip-components 1
+	rm vscode.tar.gz
+	rm -rf vscode-css
+	mkdir vscode-css
+	cp -r vscode/resources/app/extensions/node_modules vscode-css
+	cp -r vscode/resources/app/extensions/css-language-features vscode-css
+	rm -rf vscode
+
+setup_lsp_lua:
+	rm -rf lua-language-server
+	git clone https://github.com/sumneko/lua-language-server
+	cd lua-language-server && git submodule update --init --recursive
+	cd lua-language-server/3rd/luamake && ./compile/install.sh
+	cd lua-language-server && ./3rd/luamake/luamake rebuild
+
+setup_lsp_json:
+	curl -L -o vscode.tar.gz https://update.code.visualstudio.com/latest/linux-x64/stable
+	rm -rf vscode
+	mkdir vscode
+	tar -xzf vscode.tar.gz -C vscode --strip-components 1
+	rm vscode.tar.gz
+	rm -rf vscode-json
+	mkdir vscode-json
+	cp -r vscode/resources/app/extensions/node_modules vscode-json
+	cp -r vscode/resources/app/extensions/json-language-features vscode-json
+	rm -rf vscode
 
 link:
 	mkdir -p ~/.config
