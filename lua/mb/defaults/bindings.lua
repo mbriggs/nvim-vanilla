@@ -35,32 +35,5 @@ nnoremap('<s-l>', '$')
 -- why isn't it this by default??
 nnoremap('<s-y>', 'y$')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- blank line below
+nnoremap('g<space>', 'mbo<esc>^d$`b')

@@ -1,3 +1,3 @@
-nnoremap('<leader>tt', ':NvimTreeToggle<CR>')
-nnoremap('<leader>tr', ':NvimTreeRefresh<CR>')
-nnoremap('<leader>tn', ':NvimTreeFindFile<CR>')
+nnoremap('<leader>bb', ':NvimTreeToggle<CR>')
+nnoremap('<leader>br', ':NvimTreeRefresh<CR>')
+nnoremap('<leader>bf', ':NvimTreeFindFile<CR>')

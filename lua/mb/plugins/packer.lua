@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
   -- features
   use 'AndrewRadev/linediff.vim'
   use 'justinmk/vim-gtfo'
-  use 'janko/vim-test'
+  use  {'janko/vim-test', config = function() require'mb.plugins.vimtest' end}
   use 'antoinemadec/FixCursorHold.nvim'
   use 'tjdevries/astronauta.nvim'
   use 'b3nj5m1n/kommentary'
@@ -33,6 +33,7 @@ return require('packer').startup(function(use)
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}, config = function() require'mb.plugins.telescope' end}
   use {'tamago324/lir.nvim', requires = 'nvim-lua/plenary.nvim', config = function() require'mb.plugins.lir' end}
+  use {'folke/todo-comments.nvim', config = function() require'todo-comments' end }
 
   -- git
   use {'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim', config = function() require'gitsigns'.setup() end}
@@ -42,15 +43,15 @@ return require('packer').startup(function(use)
   -- go
   use {'sebdah/vim-delve', config = function() require'mb.plugins.delve' end}
 
-  -- vimux
-  use 'benmills/vimux-golang'
-  use {'preservim/vimux', config = function() require'mb.plugins.vimux' end}
+  -- tmux
   use {'christoomey/vim-tmux-navigator', config = function() require'mb.plugins.tmux-navigator' end}
+  use 'jgdavey/tslime.vim'
 
   -- colors
   use 'morhetz/gruvbox'
   use 'joshdick/onedark.vim'
   use 'folke/tokyonight.nvim'
+  use 'rafamadriz/neon'
 
   -- vim
   use 'lambdalisue/suda.vim'
@@ -63,7 +64,9 @@ return require('packer').startup(function(use)
   use 'alvan/vim-closetag'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
+  use 'tpope/vim-obsession'
   use {'mhartington/formatter.nvim', config = function() require'mb.plugins.formatter' end}
+  use {"steelsojka/pears.nvim", config = function() require'pears'.setup() end}
 
   -- text objects
   use 'kana/vim-textobj-user'

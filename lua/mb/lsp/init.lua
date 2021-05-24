@@ -4,10 +4,11 @@ local root_pattern = config.util.root_pattern
 
 config.gopls.setup{
   cmd = { "gopls", "serve" },
+  filetypes = { "go", "gomod" },
+  root_dir = root_pattern("go.mod", ".git"),
   settings = {
     gopls = {
       allowImplicitNetworkAccess = true,
-      directory_files = {"-node_modules"},
       analyses = {
         unusedparams = true,
         nilness = true
@@ -18,7 +19,7 @@ config.gopls.setup{
 }
 
 
-config.html.setup{
+--[[ config.html.setup{
   cmd = { "node", nvim_root.."/vscode-html/html-language-features/server/dist/node/htmlServerMain.js", "--stdio" },
   filetypes = { "html" },
   init_options = {
@@ -36,7 +37,7 @@ config.html.setup{
       provideFormatter = true
     }
   }
-}
+} ]]
 
 config.cssls.setup{
   cmd = { "node", nvim_root.."/vscode-css/css-language-features/server/dist/node/cssServerMain.js", "--stdio" },
@@ -63,6 +64,8 @@ config.jsonls.setup{
     provideFormatter = true,
   },
 }
+
+config.solargraph.setup{}
 
 config.sumneko_lua.setup{
   cmd = { nvim_root.."/lua-language-server/bin/macOS/lua-language-server", "-E", nvim_root.."/lua-language-server/main.lua" },
@@ -96,6 +99,50 @@ config.sumneko_lua.setup{
       },
     },
   },
+}
+
+config.vuels.setup{
+  cmd = { "/opt/homebrew/bin/vls" },
+  filetypes = { "vue" },
+  init_options = {
+    config = {
+      css = {},
+      emmet = {},
+      html = {
+        suggest = {}
+      },
+      javascript = {
+        format = {}
+      },
+      stylusSupremacy = {},
+      typescript = {
+        format = {}
+      },
+      vetur = {
+        completion = {
+          autoImport = false,
+          tagCasing = "kebab",
+          useScaffoldSnippets = false
+        },
+        format = {
+          defaultFormatter = {
+            js = "none",
+            ts = "none"
+          },
+          defaultFormatterOptions = {},
+          scriptInitialIndent = false,
+          styleInitialIndent = false
+        },
+        useWorkspaceDependencies = false,
+        validation = {
+          script = true,
+          style = true,
+          template = true
+        }
+      }
+    }
+  },
+  root_dir = root_pattern("package.json", "vue.config.js")
 }
 
 config.dockerls.setup{}

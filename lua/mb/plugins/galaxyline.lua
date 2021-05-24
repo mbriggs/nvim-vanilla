@@ -2,10 +2,29 @@ local cmd = vim.cmd
 local fn = vim.fn
 local gl = require("galaxyline")
 local section = gl.section
+local neon = require("neon.colors")
 gl.short_line_list = {"LuaTree", "packager", "Floaterm", "coc-eplorer"}
 
 
 local colors = {
+  bg = neon.bg1,
+  fg = neon.fg,
+  line_bg = neon.bg2,
+  fg_green = neon.green,
+  yellow = neon.yellow,
+  cyan = neon.cyan,
+  darkblue = neon.dark_cyan,
+  green = neon.diff_green,
+  orange = neon.orange,
+  purple = neon.purple,
+  magenta = neon.violet,
+  gray = neon.bg1,
+  blue = neon.blue,
+  red = neon.red,
+}
+
+-- tokyonight
+--[[ local colors = {
   bg = "#212538",
   fg = "#c0caf5",
   line_bg = "#212538",
@@ -20,7 +39,7 @@ local colors = {
   gray = "#565f89",
   blue = "#7aa2f7",
   red = "#f7768e"
-}
+} ]]
 
 local buffer_not_empty = function()
   if fn.empty(fn.expand("%:t")) ~= 1 then

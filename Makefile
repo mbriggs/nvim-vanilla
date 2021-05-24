@@ -12,12 +12,18 @@ install_plugins:
 setup_python:
 	pip3 install --user --upgrade pynvim
 
+
+setup_tools:
+	GO111MODULE=on go install github.com/go-delve/delve/cmd/dlv@latest
+	GO111MODULE=on go get golang.org/x/tools/cmd/goimports@latest
+
 setup_lsp: setup_lsp_html setup_lsp_css setup_lsp_lua setup_lsp_json
 	npm install -g yaml-language-server
 	GO111MODULE=on go get golang.org/x/tools/gopls@latest
 	brew install hashicorp/tap/terraform-ls
 	npm install -g typescript typescript-language-server
 	npm install -g dockerfile-language-server-nodejs
+	npm install -g vls
 
 setup_lsp_html:
 	curl -L -o vscode.tar.gz https://update.code.visualstudio.com/latest/linux-x64/stable

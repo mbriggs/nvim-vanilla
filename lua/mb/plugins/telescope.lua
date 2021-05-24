@@ -3,6 +3,7 @@ local trouble = require("trouble.providers.telescope")
 
 require'telescope'.setup{
   defaults = {
+    file_ignore_patterns = {"node_modules/*"},
     mappings = {
       i = {
         ["<esc>"] = actions.close,

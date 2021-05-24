@@ -2,6 +2,7 @@ local actions = require'lir.actions'
 local mark_actions = require 'lir.mark.actions'
 local clipboard_actions = require'lir.clipboard.actions'
 
+
 require'lir'.setup {
   show_hidden_files = false,
   devicons_enable = true,
@@ -15,12 +16,12 @@ require'lir'.setup {
     ['q']     = actions.quit,
 
     ['K']     = actions.mkdir,
-    ['N']     = actions.newfile,
-    ['R']     = actions.rename,
+    ['a']     = actions.newfile,
+    ['r']     = actions.rename,
     ['@']     = actions.cd,
-    ['Y']     = actions.yank_path,
+    ['y']     = actions.yank_path,
     ['.']     = actions.toggle_show_hidden,
-    ['D']     = actions.delete,
+    ['d']     = actions.delete,
 
     ['J'] = function()
       mark_actions.toggle_mark()
@@ -69,3 +70,4 @@ vim.cmd [[augroup END]]
 
 
 nnoremap('<leader>e', '<esc>:e %:h<cr>')
+
