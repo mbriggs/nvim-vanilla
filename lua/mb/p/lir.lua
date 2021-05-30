@@ -1,7 +1,7 @@
 local actions = require'lir.actions'
 local mark_actions = require 'lir.mark.actions'
 local clipboard_actions = require'lir.clipboard.actions'
-
+local k = vim.keymap
 
 require'lir'.setup {
   show_hidden_files = false,
@@ -69,5 +69,5 @@ vim.cmd [[  autocmd Filetype lir :lua LirSettings()]]
 vim.cmd [[augroup END]]
 
 
-nnoremap('<leader>e', '<esc>:e %:h<cr>')
+k.nnoremap{ '<leader>e', '<esc>:e %:h<cr>' }
 

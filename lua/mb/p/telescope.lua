@@ -1,7 +1,9 @@
+local t = require('telescope')
 local actions = require('telescope.actions')
 local trouble = require("trouble.providers.telescope")
+local k = vim.keymap
 
-require'telescope'.setup{
+t.setup{
   defaults = {
     file_ignore_patterns = {"node_modules/*"},
     mappings = {
@@ -20,8 +22,9 @@ require'telescope'.setup{
   }
 }
 
-require('telescope').load_extension('fzf')
+t.load_extension('fzf')
+-- t.load_extension('frecency')
 
-nnoremap('<leader>;', '<cmd>lua require(\'telescope.builtin\').find_files()<cr>')
-nnoremap('<leader>f', '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>')
-nnoremap('E', '<cmd>lua require(\'telescope.builtin\').buffers()<cr>')
+k.nnoremap { '<leader>;', function() require'telescope.builtin'.find_files() end }
+k.nnoremap { '<leader>f', function() require'telescope.builtin'.live_grep() end }
+k.nnoremap { 'E', function() require'telescope.builtin'.buffers() end }

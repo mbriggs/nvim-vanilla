@@ -1,3 +1,5 @@
+local k = vim.keymap
+
 require'lspsaga'.init_lsp_saga{
   finder_action_keys = {
     open = 'o', vsplit = 's',split = 'i',quit = 'q',scroll_down = '<C-f>', scroll_up = '<C-b>' -- quit can be a table
@@ -11,9 +13,9 @@ require'lspsaga'.init_lsp_saga{
 }
 
 
-nnoremap('<leader>.', ':Lspsaga lsp_finder<CR>')
-nnoremap('ga', ':Lspsaga code_action<CR>')
-vnoremap('ga', ':<C-U>Lspsaga range_code_action<CR>')
-nnoremap('K', ':Lspsaga hover_doc<CR>')
-nnoremap('gp', '<esc>:Lspsaga signature_help<CR>')
-nnoremap('gr', ':Lspsaga rename<CR>')
+k.nnoremap{ '<leader>.', ':Lspsaga lsp_finder<CR>' }
+k.nnoremap{ 'ga', ':Lspsaga code_action<CR>' }
+k.vnoremap{ 'ga', ':<C-U>Lspsaga range_code_action<CR>' }
+k.nnoremap{ 'K', ':Lspsaga hover_doc<CR>' }
+k.nnoremap{ 'gp', '<esc>:Lspsaga signature_help<CR>' }
+k.nnoremap{ 'gr', ':Lspsaga rename<CR>' }
