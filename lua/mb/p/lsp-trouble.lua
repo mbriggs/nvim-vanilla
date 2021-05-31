@@ -1,6 +1,6 @@
 local k = vim.keymap
 
-require"trouble".setup {}
+
 
 k.nnoremap{ '<leader>xx', '<cmd>LspTroubleToggle<cr>' }
 k.nnoremap{ '<leader>xw', '<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>' }

@@ -18,27 +18,6 @@ config.gopls.setup{
   },
 }
 
-
---[[ config.html.setup{
-  cmd = { "node", nvim_root.."/vscode-html/html-language-features/server/dist/node/htmlServerMain.js", "--stdio" },
-  filetypes = { "html" },
-  init_options = {
-    configurationSection = { "html", "css", "javascript" },
-    embeddedLanguages = {
-      css = true,
-      javascript = true
-    }
-  },
-  root_dir = function(fname)
-    return root_pattern(fname) or vim.loop.os_homedir()
-  end,
-  settings = {
-    html = {
-      provideFormatter = true
-    }
-  }
-} ]]
-
 config.cssls.setup{
   cmd = { "node", nvim_root.."/vscode-css/css-language-features/server/dist/node/cssServerMain.js", "--stdio" },
   filetypes = { 'css', 'less', 'scss' },
@@ -65,7 +44,6 @@ config.jsonls.setup{
   },
 }
 
-config.solargraph.setup{}
 
 config.sumneko_lua.setup{
   cmd = { nvim_root.."/lua-language-server/bin/macOS/lua-language-server", "-E", nvim_root.."/lua-language-server/main.lua" },
@@ -145,6 +123,7 @@ config.vuels.setup{
   root_dir = root_pattern("package.json", "vue.config.js")
 }
 
+config.solargraph.setup{}
 config.dockerls.setup{}
 config.bashls.setup{}
 config.yamlls.setup{}

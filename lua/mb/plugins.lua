@@ -12,7 +12,7 @@ end
 cmd [[packadd packer.nvim]]
 
 
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
   -- packer
   use {'wbthomason/packer.nvim',
     opt = true
@@ -33,6 +33,8 @@ return require('packer').startup(function(use)
       config = [[require'pears'.setup()]]
     },
     'chaoren/vim-wordmotion',
+    'dstein64/vim-startuptime',
+    'lambdalisue/vim-protocol',
     'tjdevries/astronauta.nvim',
     'justinmk/vim-gtfo',
     'antoinemadec/FixCursorHold.nvim',
@@ -43,7 +45,21 @@ return require('packer').startup(function(use)
     'ConradIrwin/vim-bracketed-paste',
     'tpope/vim-repeat',
     'tpope/vim-surround',
-    'andymass/vim-matchup'
+    'andymass/vim-matchup',
+    'rhysd/committia.vim',
+    'google/vim-searchindex'
+  }
+
+
+  -- debugging
+  use {
+    'theHamsta/nvim-dap-virtual-text',
+    {'mfussenegger/nvim-dap',
+      config = [[require'dap']]
+    },
+    {'rcarriga/nvim-dap-ui',
+      requires = {"mfussenegger/nvim-dap"}
+    }
   }
 
   -- completion
@@ -54,7 +70,6 @@ return require('packer').startup(function(use)
   }
 
   -- modeline
-  --
   use {'glepnir/galaxyline.nvim',
     config = [[require'mb.p.galaxyline']]
   }
@@ -65,11 +80,14 @@ return require('packer').startup(function(use)
     requires = {
       'nvim-lua/popup.nvim',
       'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-dap.nvim',
       {'nvim-telescope/telescope-fzf-native.nvim',
         run = [[make]]
       },
     },
-    config = [[require'mb.p.telescope']]
+    setup = [[require'mb.p.telescope-setup']],
+    config = [[require'mb.p.telescope']],
+    cmd = [[Telescope]]
   }
 
 
@@ -107,7 +125,8 @@ return require('packer').startup(function(use)
       config = [[require'gitsigns'.setup()]]
     },
     {'pwntester/octo.nvim',
-      config = [[require"octo".setup()]]
+      config = [[require"octo".setup()]],
+      cmd = [[Octo]]
     }
   }
 
@@ -143,7 +162,13 @@ return require('packer').startup(function(use)
     },
     {'folke/lsp-trouble.nvim',
       requires = "kyazdani42/nvim-web-devicons",
-      config = [[require'mb.p.lsp-trouble']]
+      setup = [[require'mb.p.lsp-trouble']],
+      config = [[require"trouble".setup {}]]
     }
   }
-end)
+end, config = {
+  profile = {
+    enable = true,
+    threshold = 1 -- the amount in ms that a plugins load time must be over for it to be included in the profile
+  }
+}})

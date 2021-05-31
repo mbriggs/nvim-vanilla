@@ -1,7 +1,6 @@
 local t = require('telescope')
 local actions = require('telescope.actions')
 local trouble = require("trouble.providers.telescope")
-local k = vim.keymap
 
 t.setup{
   defaults = {
@@ -23,8 +22,5 @@ t.setup{
 }
 
 t.load_extension('fzf')
--- t.load_extension('frecency')
+t.load_extension('dap')
 
-k.nnoremap { '<leader>;', function() require'telescope.builtin'.find_files() end }
-k.nnoremap { '<leader>f', function() require'telescope.builtin'.live_grep() end }
-k.nnoremap { 'E', function() require'telescope.builtin'.buffers() end }
