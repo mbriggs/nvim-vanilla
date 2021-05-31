@@ -93,8 +93,10 @@ return require('packer').startup({function(use)
 
   -- toolbox
   use {
-    {'janko/vim-test',
-      config = [[require'mb.p.vimtest']]
+    {'rcarriga/vim-ultest',
+      requires = {'janko/vim-test'},
+      run = ':UpdateRemotePlugins',
+      config = [[require'mb.p.vim-ultest']]
     },
     {'kyazdani42/nvim-tree.lua',
       config = [[require'mb.p.nvim-tree']]
