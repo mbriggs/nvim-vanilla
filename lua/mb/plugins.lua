@@ -32,6 +32,12 @@ return require('packer').startup({function(use)
     {"steelsojka/pears.nvim",
       config = [[require'pears'.setup()]]
     },
+    {"yuttie/comfortable-motion.vim",
+      config = [[require'mb.p.comfortable-motion']]
+    },
+    {"norcalli/nvim-colorizer.lua",
+      config = [[require'mb.p.colorizer']]
+    },
     'chaoren/vim-wordmotion',
     'dstein64/vim-startuptime',
     'lambdalisue/vim-protocol',
@@ -55,7 +61,7 @@ return require('packer').startup({function(use)
   use {
     'theHamsta/nvim-dap-virtual-text',
     {'mfussenegger/nvim-dap',
-      config = [[require'dap']]
+      config = [[require'mb.p.dap']]
     },
     {'rcarriga/nvim-dap-ui',
       requires = {"mfussenegger/nvim-dap"}
@@ -93,6 +99,9 @@ return require('packer').startup({function(use)
 
   -- toolbox
   use {
+    {'brooth/far.vim',
+      cmd = {'Far', 'Farr'}
+    },
     {'rcarriga/vim-ultest',
       requires = {'janko/vim-test'},
       run = ':UpdateRemotePlugins',
@@ -122,6 +131,7 @@ return require('packer').startup({function(use)
 
   -- git
   use {
+    'ruifm/gitlinker.nvim',
     {'lewis6991/gitsigns.nvim',
       requires = 'nvim-lua/plenary.nvim',
       config = [[require'gitsigns'.setup()]]
