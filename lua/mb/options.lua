@@ -48,6 +48,7 @@ o.updatetime = 2000
 o.completeopt = "menuone,noselect"
 o.number = true
 o.hidden = true
+o.termguicolors = true
 
 g.mapleader = " "
 

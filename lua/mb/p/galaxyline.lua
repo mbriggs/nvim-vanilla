@@ -1,69 +1,38 @@
 local gl = require("galaxyline")
 local gls = gl.section
-local neon = require("neon.colors")
+local neon = require("mb.colors")
 
 
 gl.short_line_list = {" "} -- keeping this table { } as empty will show inactive statuslines
 
-local colors = {
-    main = "#ff87ff",
-    bg_alt = "#0B0C15",
-    lightbg = "#21252B",
-    commented = "#5c6370",
-	grey = "#3c4048",
-	line_bg = "#282c34",
-	creamydark = "#282c34",
-    purple = "#252930",
-    cyan = "#00FFFF",
-    nord = "#81A1C1",
-	lightblue = "#81a1c1",
-    darkblue = "#61afef",
-    blue = "#61afef",
-	limegreen = "#bbe67e",
-    green = "#7ed491",
-    fg_green = "#65a380",
-	creamygreen = "#a3be8c",
-    yellow = "#A3BE8C",
-	creamyorange = "#ff8800",
-    orange = "#FF8800",
-    bg = "#000B0C15",
-    fg = "#D8DEE9",
-    magenta = "#c678dd",
-    red = "#df8890",
-	crimsonRed = "#990000",
-    greenYel = "#EBCB8B",
-    white = "#d8dee9",
-	brown = "91684a"
-}
 
 local mode_map = {
-    n		= {" n ", neon.red},
-    i		= {" i ", neon.green},
-    c		= {" c ", neon.orange},
-    v		= {" ", neon.light_blue},
-    R		= {" ", neon.light_blue},
-	t		= {"  ", neon.violet},
+    n		= neon.red,
+    i		=  neon.green,
+    c		=  neon.orange,
+    v		=  neon.light_blue,
+    R		=  neon.light_blue,
+    t		=  neon.violet,
 
-	no		= {" ", neon.red},
-	ic		= {" ", neon.green},
-	cv		= {" ", neon.orange},
-	ce		= {" ", neon.orange},
-    V		= {" ", neon.light_blue},
-    [""]  = {" ", neon.dark_cyan},
-	['r?']  = {" ", neon.light_blue},
-	Rv		= {" ", neon.light_blue},
-	r		= {" ", neon.light_blue},
-	rm		= {" ", neon.light_blue},
-	s		= {"  S ", colors.yellow},
-	S		= {"  S ", colors.yellow},
-	['']  = {"  S ", colors.yellow},
-	['!']	= {" ! ", colors.red},
+    no		=  neon.red,
+    ic		=  neon.green,
+    cv		=  neon.orange,
+    ce		=  neon.orange,
+    V		=  neon.light_blue,
+    [""]  =  neon.dark_cyan,
+    ['r?']  =  neon.light_blue,
+    Rv		=  neon.light_blue,
+    r		=  neon.light_blue,
+    rm		=  neon.light_blue,
+    s		=  neon.yellow,
+    S		=  neon.yellow,
+    ['']  =  neon.yellow,
+    ['!']	=  neon.red,
 }
 
 ----------------------------=== Funcs ===--------------------------
 
-local function mode_label() return mode_map[vim.fn.mode()][1] or 'N/A' end
-local function mode_hl() return mode_map[vim.fn.mode()][2] or colors.main end
+local function mode_hl() return mode_map[vim.fn.mode()] or neon.main end
 
 local function highlight1(group, fg, gui)
     local cmd = string.format('highlight %s guifg=%s', group, fg)
@@ -103,7 +72,7 @@ gls.left[2] = {
 }
 
 gls.left[3] = {
-    WhiteSpace = {
+    LeftBubbleOpen= {
         provider = function()
             highlight2('SecondGalaxyViMode', mode_hl(), neon.fg, 'bold')
         end,
@@ -206,6 +175,15 @@ gls.right[2] = {
     }
 }
 
+gls.right[3] = {
+    WhiteSpace= {
+        provider = function() return " " end,
+        separator = "",
+        condition = require("galaxyline.provider_vcs").check_git_workspace,
+        highlight = {neon.bg0, neon.bg0},
+    }
+}
+
 local checkwidth = function()
     local squeeze_width = vim.fn.winwidth(0) / 2
     if squeeze_width > 40 then
@@ -214,7 +192,7 @@ local checkwidth = function()
     return false
 end
 
-gls.right[3] = {
+gls.right[4] = {
     DiffAdd = {
         provider = "DiffAdd",
         condition = checkwidth,
@@ -223,7 +201,7 @@ gls.right[3] = {
     }
 }
 
-gls.right[4] = {
+gls.right[5] = {
     DiffModified = {
         provider = "DiffModified",
         condition = checkwidth,
@@ -232,7 +210,7 @@ gls.right[4] = {
     }
 }
 
-gls.right[5] = {
+gls.right[6] = {
     DiffRemove = {
         provider = "DiffRemove",
         condition = checkwidth,
@@ -240,9 +218,9 @@ gls.right[5] = {
         highlight = {neon.red, neon.bg0}
     }
 }
-gls.right[6] = {
+gls.right[7] = {
     right_LeftRounded = {
-		separator = "", -- separate from git branch
+		separator = " ", -- separate from git branch
         provider = function()
             return ""
         end,
@@ -251,7 +229,7 @@ gls.right[6] = {
 }
 
 
-gls.right[7] = {
+gls.right[8] = {
     PerCent = {
         provider = "LinePercent",
         separator = " ",
@@ -260,7 +238,7 @@ gls.right[7] = {
     }
 }
 
-gls.right[8] = {
+gls.right[9] = {
     rightRounded = {
         provider = function()
             return ""
