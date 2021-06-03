@@ -2,7 +2,7 @@ require'compe'.setup {
   enabled = true;
   autocomplete = true;
   debug = false;
-  min_length = 1;
+  min_length = 3;
   preselect = 'always';
   documentation = true;
 

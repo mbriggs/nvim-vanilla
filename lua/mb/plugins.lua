@@ -170,6 +170,7 @@ return require('packer').startup({function(use)
     },
     'nvim-lua/lsp-status.nvim',
     {'glepnir/lspsaga.nvim',
+      requires = {'ray-x/lsp_signature.nvim'},
       config = [[require'mb.p.lspsaga']]
     },
     {'folke/lsp-trouble.nvim',
