@@ -7,8 +7,8 @@ gl.short_line_list = {" "} -- keeping this table { } as empty will show inactive
 
 
 local mode_map = {
-    n		= neon.red,
-    i		=  neon.green,
+    n		= neon.diff_green,
+    i		=  neon.purple,
     c		=  neon.orange,
     v		=  neon.light_blue,
     R		=  neon.light_blue,

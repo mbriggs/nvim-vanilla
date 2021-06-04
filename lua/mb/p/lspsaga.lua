@@ -1,4 +1,5 @@
 local k = vim.keymap
+local cmd = vim.cmd
 
 require'lspsaga'.init_lsp_saga{
   finder_action_keys = {
@@ -19,6 +20,7 @@ k.vnoremap{ 'ga', ':<C-U>Lspsaga range_code_action<CR>' }
 k.nnoremap{ 'K', ':Lspsaga hover_doc<CR>' }
 k.nnoremap{ 'gp', '<esc>:Lspsaga signature_help<CR>' }
 k.nnoremap{ 'gr', ':Lspsaga rename<CR>' }
+k.inoremap{ '<c-space>', function() require('lspsaga.signaturehelp').signature_help() end }
 
 
 local M = {}

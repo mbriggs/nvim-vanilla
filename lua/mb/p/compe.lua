@@ -1,9 +1,8 @@
 local compe = require'compe'
-local k = vim.keymap
 
 compe.setup {
   enabled = true;
-  autocomplete = false;
+  autocomplete = true;
   debug = false;
   min_length = 1;
   preselect = 'always';
@@ -18,5 +17,3 @@ compe.setup {
     vsnip = false;
   };
 }
-
-k.inoremap{ '<c-space>', 'compe#complete()', expr = true }
