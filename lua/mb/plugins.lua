@@ -38,7 +38,9 @@ return require('packer').startup({function(use)
     {"norcalli/nvim-colorizer.lua",
       config = [[require'mb.p.colorizer']]
     },
-    'chaoren/vim-wordmotion',
+    {'chaoren/vim-wordmotion',
+      setup = [[vim.g.wordmotion_prefix = '<space>']]
+    },
     'dstein64/vim-startuptime',
     'lambdalisue/vim-protocol',
     'tjdevries/astronauta.nvim',
