@@ -25,9 +25,6 @@ k.nmap{ '<c-p>', ':cp<cr>' }
 -- who needs loads of macro registers?
 k.nnoremap{ 'Q', '@q' }
 
--- jump to matching pair
-k.nnoremap{ '<Leader>m', '%' }
-
 -- %% for current dir
 k.cnoremap{ '%%', '<C-R>=expand(\'%:h\').\'/\'<cr>' }
 

@@ -1,8 +1,33 @@
 local config = require'lspconfig'
+local configs = require 'lspconfig/configs'
 local nvim_root = '/Users/mbriggs/nvim'
 local root_pattern = config.util.root_pattern
+local k = vim.keymap
+
+k.nnoremap{ 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', silent = true }
+k.nnoremap{ 'gr', '<cmd>lua vim.lsp.buf.rename()<CR>', silent = true }
+k.nnoremap{ "<space>=", "<cmd>lua vim.lsp.buf.formatting()<CR>", silent = true }
+
+local on_attach = function(_, _)
+  require'lsp_signature'.on_attach({
+    bind = true,
+    doc_lines = 10,
+    floating_window = true,
+    hint_enable = false,
+    hint_scheme = "String",
+    use_lspsaga = false,
+    hi_parameter = "IncSearch",
+    max_height = 12,
+    max_width = 120,
+    handler_opts = {
+      border = "single"
+    },
+    extra_trigger_chars = {"(", ","}
+  })
+end
 
 config.gopls.setup{
+  on_attach = on_attach,
   cmd = { "gopls", "serve" },
   filetypes = { "go", "gomod" },
   root_dir = root_pattern("go.mod", ".git"),
@@ -19,6 +44,7 @@ config.gopls.setup{
 }
 
 config.cssls.setup{
+  on_attach = on_attach,
   cmd = { "node", nvim_root.."/vscode-css/css-language-features/server/dist/node/cssServerMain.js", "--stdio" },
   filetypes = { 'css', 'less', 'scss' },
   root_dir = root_pattern("package.json"),
@@ -36,6 +62,7 @@ config.cssls.setup{
 }
 
 config.jsonls.setup{
+  on_attach = on_attach,
   cmd = { "node", nvim_root.."/vscode-json/json-language-features/server/dist/node/jsonServerMain.js", "--stdio" },
   filetypes = { 'json' },
   root_dir = root_pattern(".git", vim.fn.getcwd()),
@@ -46,6 +73,7 @@ config.jsonls.setup{
 
 
 config.sumneko_lua.setup{
+  on_attach = on_attach,
   cmd = { nvim_root.."/lua-language-server/bin/macOS/lua-language-server", "-E", nvim_root.."/lua-language-server/main.lua" },
   filetypes = { "lua" },
   log_level = 2,
@@ -80,6 +108,7 @@ config.sumneko_lua.setup{
 }
 
 config.vuels.setup{
+  on_attach = on_attach,
   cmd = { "/opt/homebrew/bin/vls" },
   filetypes = { "vue" },
   init_options = {
@@ -123,9 +152,25 @@ config.vuels.setup{
   root_dir = root_pattern("package.json", "vue.config.js")
 }
 
-config.solargraph.setup{}
-config.dockerls.setup{}
-config.bashls.setup{}
-config.yamlls.setup{}
-config.terraformls.setup{}
-config.tsserver.setup{}
+if not config.golangcilsp then
+ 	configs.golangcilsp = {
+		default_config = {
+			cmd = {'golangci-lint-langserver'},
+			root_dir = config.util.root_pattern('.git', 'go.mod'),
+			init_options = {
+					command = { "golangci-lint", "run", "-p", "error,bugs,sql", "--out-format", "json" };
+			}
+		};
+	}
+end
+config.golangcilsp.setup {
+  on_attach = on_attach,
+	filetypes = {'go'}
+}
+
+config.solargraph.setup{ on_attach = on_attach }
+config.dockerls.setup{ on_attach = on_attach }
+config.bashls.setup{ on_attach = on_attach }
+config.yamlls.setup{ on_attach = on_attach }
+config.terraformls.setup{ on_attach = on_attach }
+config.tsserver.setup{ on_attach = on_attach }

@@ -41,6 +41,9 @@ return require('packer').startup({function(use)
     {'chaoren/vim-wordmotion',
       setup = [[vim.g.wordmotion_prefix = '<space>']]
     },
+    {'ggandor/lightspeed.nvim',
+      config = [[require'mb.p.lightspeed']]
+    },
     'dstein64/vim-startuptime',
     'lambdalisue/vim-protocol',
     'tjdevries/astronauta.nvim',
@@ -104,6 +107,7 @@ return require('packer').startup({function(use)
     {'brooth/far.vim',
       cmd = {'Far', 'Farr'}
     },
+    {'TimUntersberger/neogit'},
     {'rcarriga/vim-ultest',
       requires = {'janko/vim-test'},
       run = ':UpdateRemotePlugins',
@@ -111,10 +115,6 @@ return require('packer').startup({function(use)
     },
     {'kyazdani42/nvim-tree.lua',
       config = [[require'mb.p.nvim-tree']]
-    },
-    {'tamago324/lir.nvim',
-      requires = 'nvim-lua/plenary.nvim',
-      config = [[require'mb.p.lir']]
     },
     {'folke/todo-comments.nvim',
       requires = "nvim-lua/plenary.nvim",
@@ -171,9 +171,8 @@ return require('packer').startup({function(use)
       config = [[require'mb.p.lspconfig']]
     },
     'nvim-lua/lsp-status.nvim',
-    {'glepnir/lspsaga.nvim',
-      requires = {'ray-x/lsp_signature.nvim'},
-      config = [[require'mb.p.lspsaga']]
+    {'ray-x/lsp_signature.nvim',
+      setup = [[require'mb.p.lsp_signature']]
     },
     {'folke/lsp-trouble.nvim',
       requires = "kyazdani42/nvim-web-devicons",
