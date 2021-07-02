@@ -22,5 +22,5 @@ t.setup{
 }
 
 t.load_extension('fzf')
-t.load_extension('dap')
+-- t.load_extension('dap')
 

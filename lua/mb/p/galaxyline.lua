@@ -1,38 +1,38 @@
 local gl = require("galaxyline")
 local gls = gl.section
-local neon = require("mb.colors")
+local c = require("mb.colors")
 
 
 gl.short_line_list = {" "} -- keeping this table { } as empty will show inactive statuslines
 
 
 local mode_map = {
-    n		= neon.diff_green,
-    i		=  neon.purple,
-    c		=  neon.orange,
-    v		=  neon.light_blue,
-    R		=  neon.light_blue,
-    t		=  neon.violet,
+    n		= c.blue,
+    i		=  c.blue6,
+    c		=  c.orange,
+    v		=  c.blue5,
+    R		=  c.blue,
+    t		=  c.purple,
 
-    no		=  neon.red,
-    ic		=  neon.green,
-    cv		=  neon.orange,
-    ce		=  neon.orange,
-    V		=  neon.light_blue,
-    [""]  =  neon.dark_cyan,
-    ['r?']  =  neon.light_blue,
-    Rv		=  neon.light_blue,
-    r		=  neon.light_blue,
-    rm		=  neon.light_blue,
-    s		=  neon.yellow,
-    S		=  neon.yellow,
-    ['']  =  neon.yellow,
-    ['!']	=  neon.red,
+    no		=  c.red,
+    ic		=  c.green,
+    cv		=  c.orange,
+    ce		=  c.orange,
+    V		=  c.blue,
+    [""]  =  c.aqua,
+    ['r?']  =  c.blue,
+    Rv		=  c.blue,
+    r		=  c.blue,
+    rm		=  c.blue,
+    s		=  c.yellow,
+    S		=  c.yellow,
+    ['']  =  c.yellow,
+    ['!']	=  c.red,
 }
 
 ----------------------------=== Funcs ===--------------------------
 
-local function mode_hl() return mode_map[vim.fn.mode()] or neon.main end
+local function mode_hl() return mode_map[vim.fn.mode()] or c.fg end
 
 local function highlight1(group, fg, gui)
     local cmd = string.format('highlight %s guifg=%s', group, fg)
@@ -64,7 +64,7 @@ gls.left[1] = {
 gls.left[2] = {
     ViMode = {
         provider = function()
-            highlight2('GalaxyViMode', mode_hl(), neon.bg0, 'bold')
+            highlight2('GalaxyViMode', mode_hl(), c.bg, 'bold')
             highlight1('GalaxyViModeInv', mode_hl(), 'bold')
             return string.format('  %-2s ', vim.fn.mode())
         end,
@@ -74,7 +74,7 @@ gls.left[2] = {
 gls.left[3] = {
     LeftBubbleOpen= {
         provider = function()
-            highlight2('SecondGalaxyViMode', mode_hl(), neon.fg, 'bold')
+            highlight2('SecondGalaxyViMode', mode_hl(), c.fg, 'bold')
         end,
         separator = "",
         separator_highlight = 'SecondGalaxyViMode'
@@ -86,8 +86,8 @@ gls.left[4] = {
 	FileIcon = {
        provider = "FileIcon",
        separator = "",
-       separator_highlight = {neon.fg, neon.fg},
-       highlight = {neon.bg4, neon.fg}
+       separator_highlight = {c.fg, c.fg},
+       highlight = {c.bg, c.fg}
    }
 
 }
@@ -96,7 +96,7 @@ gls.left[5] = {
     FileName = {
         provider = {"FileName", "FileSize"},
         condition = buffer_not_empty,
-        highlight = {neon.bg4, neon.fg}
+        highlight = {c.bg, c.fg}
     }
 }
 
@@ -106,7 +106,7 @@ gls.left[6] = {
             return " "
         end,
         separator = "",
-        highlight = {neon.fg, neon.bg0}
+        highlight = {c.fg, c.bg}
     }
 }
 
@@ -115,7 +115,7 @@ gls.left[7] = {
     DiagnosticError = {
         provider = "DiagnosticError",
         icon = "  ",
-        highlight = {neon.red, neon.bg0}
+        highlight = {c.red, c.bg}
     }
 }
 
@@ -123,7 +123,7 @@ gls.left[8] = {
     DiagnosticWarn = {
         provider = "DiagnosticWarn",
         icon = "  ",
-        highlight = {neon.green, neon.bg0}
+        highlight = {c.green, c.bg}
     }
 }
 
@@ -131,7 +131,7 @@ gls.left[9] = {
     DiagnosticInfo = {
         provider = "DiagnosticInfo",
         icon = "  ",
-        highlight = {neon.blue, neon.bg0}
+        highlight = {c.blue, c.bg}
     }
 }
 
@@ -163,7 +163,7 @@ gls.right[1] = {
             return "   "
         end,
         condition = require("galaxyline.provider_vcs").check_git_workspace,
-        highlight = {neon.diff_green, neon.bg0}
+        highlight = {c.diff_green, c.bg}
     }
 }
 
@@ -171,7 +171,7 @@ gls.right[2] = {
     GitBranch = {
         provider = "GitBranch",
         condition = require("galaxyline.provider_vcs").check_git_workspace,
-        highlight = {neon.diff_green, neon.bg0},
+        highlight = {c.diff_green, c.bg},
     }
 }
 
@@ -180,7 +180,7 @@ gls.right[3] = {
         provider = function() return " " end,
         separator = "",
         condition = require("galaxyline.provider_vcs").check_git_workspace,
-        highlight = {neon.bg0, neon.bg0},
+        highlight = {c.bg, c.bg},
     }
 }
 
@@ -197,7 +197,7 @@ gls.right[4] = {
         provider = "DiffAdd",
         condition = checkwidth,
         icon = "  +",
-        highlight = {neon.yellow, neon.bg0}
+        highlight = {c.green, c.bg}
     }
 }
 
@@ -206,7 +206,7 @@ gls.right[5] = {
         provider = "DiffModified",
         condition = checkwidth,
         icon = " ~",
-        highlight = {neon.orange, neon.bg0}
+        highlight = {c.orange, c.bg}
     }
 }
 
@@ -215,7 +215,7 @@ gls.right[6] = {
         provider = "DiffRemove",
         condition = checkwidth,
         icon = " -",
-        highlight = {neon.red, neon.bg0}
+        highlight = {c.red, c.bg}
     }
 }
 gls.right[7] = {
@@ -224,7 +224,7 @@ gls.right[7] = {
         provider = function()
             return ""
         end,
-        highlight = {neon.bg4, neon.bg0}
+        highlight = {c.bg, c.bg}
     }
 }
 
@@ -233,8 +233,8 @@ gls.right[8] = {
     PerCent = {
         provider = "LinePercent",
         separator = " ",
-        separator_highlight = {neon.fg, neon.bg4},
-        highlight = {neon.fg, neon.bg4}
+        separator_highlight = {c.fg, c.bg},
+        highlight = {c.fg, c.bg}
     }
 }
 
@@ -243,7 +243,7 @@ gls.right[9] = {
         provider = function()
             return ""
         end,
-        highlight = {neon.bg4, neon.bg0}
+        highlight = {c.bg, c.bg}
     }
 }
 

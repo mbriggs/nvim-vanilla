@@ -53,7 +53,7 @@ o.termguicolors = true
 g.mapleader = " "
 
 opt.mouse = opt.mouse + "a"
-opt.grepprg = "rg\\ --vimgrep\\ --no-heading"
+opt.grepprg = "rg --vimgrep --no-heading --smart-case"
 opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
 
 if term == 'screen' then

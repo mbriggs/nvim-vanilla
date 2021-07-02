@@ -2,11 +2,7 @@ local config = require'lspconfig'
 local configs = require 'lspconfig/configs'
 local nvim_root = '/Users/mbriggs/nvim'
 local root_pattern = config.util.root_pattern
-local k = vim.keymap
 
-k.nnoremap{ 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', silent = true }
-k.nnoremap{ 'gr', '<cmd>lua vim.lsp.buf.rename()<CR>', silent = true }
-k.nnoremap{ "<space>=", "<cmd>lua vim.lsp.buf.formatting()<CR>", silent = true }
 
 local on_attach = function(_, _)
   require'lsp_signature'.on_attach({

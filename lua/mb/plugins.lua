@@ -41,10 +41,19 @@ return require('packer').startup({function(use)
     {'chaoren/vim-wordmotion',
       setup = [[vim.g.wordmotion_prefix = '<space>']]
     },
-    {'ggandor/lightspeed.nvim',
-      config = [[require'mb.p.lightspeed']]
+    {'kevinhwang91/nvim-bqf',
+      requires = {
+        {'junegunn/fzf',
+          dir = '~/.fzf',
+          run = './install --all'
+        },
+        'junegunn/fzf.vim'
+      },
+      config = [[require'mb.p.nvim-bqf']]
     },
     'dstein64/vim-startuptime',
+    'famiu/nvim-reload',
+    'famiu/bufdelete.nvim',
     'lambdalisue/vim-protocol',
     'tjdevries/astronauta.nvim',
     'justinmk/vim-gtfo',
@@ -64,13 +73,14 @@ return require('packer').startup({function(use)
 
   -- debugging
   use {
-    'theHamsta/nvim-dap-virtual-text',
-    {'mfussenegger/nvim-dap',
-      config = [[require'mb.p.dap']]
+    'mfussenegger/nvim-dap',
+    requires = {
+      'rcarriga/nvim-dap-ui',
+      {'theHamsta/nvim-dap-virtual-text',
+        requires = {'mfussenegger/nvim-dap', 'nvim-treesitter/nvim-treesitter'}
+      }
     },
-    {'rcarriga/nvim-dap-ui',
-      requires = {"mfussenegger/nvim-dap"}
-    }
+    config = [[require'mb.p.dap']]
   }
 
   -- completion
@@ -104,10 +114,9 @@ return require('packer').startup({function(use)
 
   -- toolbox
   use {
-    {'brooth/far.vim',
-      cmd = {'Far', 'Farr'}
+    {'tamago324/lir.nvim',
+      config = [[require'mb.p.lir']]
     },
-    {'TimUntersberger/neogit'},
     {'rcarriga/vim-ultest',
       requires = {'janko/vim-test'},
       run = ':UpdateRemotePlugins',
@@ -134,6 +143,8 @@ return require('packer').startup({function(use)
   -- git
   use {
     'ruifm/gitlinker.nvim',
+    {'TimUntersberger/neogit'},
+    'tveskag/nvim-blame-line',
     {'lewis6991/gitsigns.nvim',
       requires = 'nvim-lua/plenary.nvim',
       config = [[require'gitsigns'.setup()]]
@@ -154,8 +165,18 @@ return require('packer').startup({function(use)
 
   -- colors
   use {
-    'rafamadriz/neon',
-    config = [[require'mb.p.neon']]
+    {'rafamadriz/neon',
+      -- config = [[require'mb.p.neon']]
+    },
+    {'bluz71/vim-nightfly-guicolors',
+      -- config = [[require'mb.p.nightfly']]
+    },
+    {'sainnhe/gruvbox-material',
+      -- config = [[require'mb.p.gruvbox']]
+    },
+    {'folke/tokyonight.nvim',
+      config = [[require'mb.p.tokyonight']]
+    }
   }
 
   -- text objects
@@ -169,6 +190,9 @@ return require('packer').startup({function(use)
   use {
     {'neovim/nvim-lspconfig',
       config = [[require'mb.p.lspconfig']]
+    },
+    {'glepnir/lspsaga.nvim',
+      config = [[require'mb.p.lspsaga']]
     },
     'nvim-lua/lsp-status.nvim',
     {'ray-x/lsp_signature.nvim',

@@ -27,7 +27,6 @@ ultest.setup({
         end
         args[#args + 1] = arg
       end
-      print(args)
       return {
         dap = {
           type = "go",
