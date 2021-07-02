@@ -51,6 +51,7 @@ return require('packer').startup({function(use)
       },
       config = [[require'mb.p.nvim-bqf']]
     },
+    'dhruvasagar/vim-zoom',
     'dstein64/vim-startuptime',
     'famiu/nvim-reload',
     'famiu/bufdelete.nvim',

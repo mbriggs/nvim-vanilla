@@ -31,16 +31,6 @@ require'lir'.setup {
     ['X'] = clipboard_actions.cut,
     ['P'] = clipboard_actions.paste,
   },
-  float = {
-    size_percentage = 0.5,
-    winblend = 15,
-    border = true,
-    borderchars = {"╔" , "═" , "╗" , "║" , "╝" , "═" , "╚", ""},
-
-    -- -- If you want to use `shadow`, set `shadow` to `true`.
-    -- -- Also, if you set shadow to true, the value of `borderchars` will be ignored.
-    -- shadow = false,
-  },
   hide_cursor = true,
 }
 

@@ -15,6 +15,7 @@ k.nnoremap { '<leader>"', [[<cmd>Telescope filetypes<cr>]]}
 -- k.nnoremap{ 'ga', [[<cmd>Telescope lsp_code_actions<cr>]] }
 k.nnoremap{ '<leader>xf', [[<cmd>Telescope lsp_workspace_diagnostics<cr>]] }
 k.nnoremap{ '<leader>m', [[<cmd>Telescope lsp_document_symbols<cr>]] }
+k.nnoremap{ '<leader>M', [[<cmd>Telescope lsp_dynamic_workspace_symbols<cr>]] }
 
 -- git
 k.nnoremap{ '<leader>gc', [[<cmd>Telescope git_bcommits<cr>]] }
