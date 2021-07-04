@@ -2,7 +2,7 @@ require'astronauta.keymap'
 local k = vim.keymap
 
 -- enter clears hlsearch
-k.nnoremap{ '<CR>', ':nohlsearch<CR>:wa<CR>' }
+k.nnoremap{ '<CR>', ':nohlsearch<CR>' }
 
 -- toggle last file
 k.nnoremap{ '<leader><leader>', '<c-^>' }
@@ -13,10 +13,6 @@ k.nmap{ '<Leader>so', '<esc>:luafile ~/.config/nvim/init.lua' }
 -- dupe stuff
 k.vmap{ '<c-d>', 'mby`bp`bgv' }
 k.nmap{ '<c-d>', 'mpyyp`p' }
-
--- scrolling (m-j and m-k in osx)
-k.nnoremap{ '∆', '<c-e>' }
-k.nnoremap{ '˚', '<c-y>' }
 
  -- qf
 k.nmap{ '<c-n>', ':cn<cr>' }

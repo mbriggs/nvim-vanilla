@@ -13,20 +13,18 @@ cmd [[packadd packer.nvim]]
 
 
 return require('packer').startup({function(use)
-  -- packer
+  ---- packer
   use {'wbthomason/packer.nvim',
     opt = true
   }
 
-  -- syntax
-  use {'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = [[require'mb.p.treesitter']]
-  }
-    -- 'sheerun/vim-polyglot'
-
-  -- vim features
+  ---- vim features
+  -- Things that transparently add or augment features in neovim
   use {
+    {'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
+      config = [[require'mb.p.treesitter']]
+    },
     {"steelsojka/pears.nvim",
       config = [[require'pears'.setup()]]
     },
@@ -49,6 +47,16 @@ return require('packer').startup({function(use)
       },
       config = [[require'mb.p.nvim-bqf']]
     },
+    {'Pocco81/AutoSave.nvim',
+      config = [[require'autosave'.setup()]]
+    },
+    {'glepnir/galaxyline.nvim',
+      config = [[require'mb.p.galaxyline']]
+    },
+    {'hrsh7th/nvim-compe',
+      branch = 'master',
+      config = [[require'mb.p.compe']]
+    },
     'dhruvasagar/vim-zoom',
     'dstein64/vim-startuptime',
     'famiu/nvim-reload',
@@ -70,7 +78,7 @@ return require('packer').startup({function(use)
   }
 
 
-  -- debugging
+  ---- debugging
   use {
     'mfussenegger/nvim-dap',
     requires = {
@@ -82,20 +90,7 @@ return require('packer').startup({function(use)
     config = [[require'mb.p.dap']]
   }
 
-  -- completion
-  use {
-    'hrsh7th/nvim-compe',
-    branch = 'master',
-    config = [[require'mb.p.compe']]
-  }
-
-  -- modeline
-  use {'glepnir/galaxyline.nvim',
-    config = [[require'mb.p.galaxyline']]
-  }
-
-
-  -- telescope
+  ---- telescope
   use {'nvim-telescope/telescope.nvim',
     requires = {
       'nvim-lua/popup.nvim',
@@ -111,7 +106,8 @@ return require('packer').startup({function(use)
   }
 
 
-  -- toolbox
+  ---- toolbox
+  -- adds tools to neovim
   use {
     {'tamago324/lir.nvim',
       config = [[require'mb.p.lir']]
