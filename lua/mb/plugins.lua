@@ -19,13 +19,11 @@ return require('packer').startup({function(use)
   }
 
   -- syntax
-  use {
-    {'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate',
-      config = [[require'mb.p.treesitter']]
-    },
-    'sheerun/vim-polyglot'
+  use {'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = [[require'mb.p.treesitter']]
   }
+    -- 'sheerun/vim-polyglot'
 
   -- vim features
   use {

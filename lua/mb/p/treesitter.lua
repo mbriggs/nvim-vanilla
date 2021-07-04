@@ -6,7 +6,7 @@ ts_configs.setup {
     'rust', 'toml', 'typescript', 'yaml', 'fish'
   },
   highlight = {enable = true, use_languagetree = true},
-  indent = {enable = false},
+  indent = {enable = true},
   incremental_selection = {enable = false},
   refactor = {
     highlight_definitions = {enable = true}
