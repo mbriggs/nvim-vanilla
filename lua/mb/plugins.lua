@@ -138,6 +138,7 @@ return require('packer').startup({function(use)
   -- git
   use {
     'ruifm/gitlinker.nvim',
+    'rhysd/git-messenger.vim',
     {'TimUntersberger/neogit'},
     'tveskag/nvim-blame-line',
     {'lewis6991/gitsigns.nvim',
@@ -179,6 +180,9 @@ return require('packer').startup({function(use)
     'kana/vim-textobj-user',
     'rhysd/vim-textobj-anyblock',
     'wellle/targets.vim',
+    {'nvim-treesitter/nvim-treesitter-textobjects',
+      config = [[require'mb.p.treesitter-textobjects']]
+    }
   }
 
   -- LSP

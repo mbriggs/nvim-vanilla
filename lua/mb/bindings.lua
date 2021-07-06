@@ -2,7 +2,7 @@ require'astronauta.keymap'
 local k = vim.keymap
 
 -- enter clears hlsearch
-k.nnoremap{ '<CR>', ':nohlsearch<CR>' }
+k.nnoremap{ '<CR>', ':nohlsearch<CR>:w<CR>' }
 
 -- toggle last file
 k.nnoremap{ '<leader><leader>', '<c-^>' }
