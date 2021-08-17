@@ -109,13 +109,13 @@ return require('packer').startup({function(use)
   ---- toolbox
   -- adds tools to neovim
   use {
-    {'tamago324/lir.nvim',
-      config = [[require'mb.p.lir']]
-    },
     {'rcarriga/vim-ultest',
       requires = {'janko/vim-test'},
       run = ':UpdateRemotePlugins',
       config = [[require'mb.p.vim-ultest']]
+    },
+    {'luissimas/eval.nvim',
+      config = [[require'mb.p.eval']]
     },
     {'kyazdani42/nvim-tree.lua',
       config = [[require'mb.p.nvim-tree']]
@@ -128,10 +128,6 @@ return require('packer').startup({function(use)
       config = [[require'mb.p.formatter']]
     },
     'lambdalisue/reword.vim',
-    {'Olical/vim-enmasse',
-      cmd = "EnMasse"
-    },
-    -- 'kevinhwang91/nvim-bqf',
     'alvan/vim-closetag'
   }
 
