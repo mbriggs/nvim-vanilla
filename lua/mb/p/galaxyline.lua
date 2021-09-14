@@ -5,7 +5,6 @@ local c = require("mb.colors")
 
 gl.short_line_list = {" "} -- keeping this table { } as empty will show inactive statuslines
 
-
 local mode_map = {
     n		= c.blue,
     i		=  c.blue6,

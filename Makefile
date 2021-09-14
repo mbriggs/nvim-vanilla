@@ -5,12 +5,14 @@ install:
 	arch -arm64 brew install --HEAD tree-sitter
 	arch -arm64 brew install --HEAD luajit
 	arch -arm64 brew install --HEAD neovim
+	arch -arm64 brew install universal-ctags
 
 install_plugins:
 	nvim +PlugInstall +qa
 
 setup_python:
 	pip3 install --user --upgrade pynvim
+	pip3 install --user --upgrade virtualenv
 
 
 setup_tools:

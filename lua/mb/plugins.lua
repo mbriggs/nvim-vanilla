@@ -25,6 +25,12 @@ return require('packer').startup({function(use)
       run = ':TSUpdate',
       config = [[require'mb.p.treesitter']]
     },
+    {"projekt0n/circles.nvim",
+      requires = {{"kyazdani42/nvim-web-devicons"}, {"kyazdani42/nvim-tree.lua", opt = true}},
+      config = function()
+        require("circles").setup()
+      end
+    },
     {"steelsojka/pears.nvim",
       config = [[require'pears'.setup()]]
     },
@@ -47,12 +53,13 @@ return require('packer').startup({function(use)
       },
       config = [[require'mb.p.nvim-bqf']]
     },
-    {'Pocco81/AutoSave.nvim',
-      config = [[require'autosave'.setup()]]
-    },
     {'glepnir/galaxyline.nvim',
       config = [[require'mb.p.galaxyline']]
     },
+--    {'ms-jpq/coq_nvim',
+--      branch = 'coq',
+--      config = [[require'mb.p.coq']]
+--    },
     {'hrsh7th/nvim-compe',
       branch = 'master',
       config = [[require'mb.p.compe']]
@@ -185,6 +192,9 @@ return require('packer').startup({function(use)
   use {
     {'neovim/nvim-lspconfig',
       config = [[require'mb.p.lspconfig']]
+    },
+    {'williamboman/nvim-lsp-installer',
+      config = [[require'mb.p.lspinstaller']]
     },
     {'glepnir/lspsaga.nvim',
       config = [[require'mb.p.lspsaga']]
