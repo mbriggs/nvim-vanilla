@@ -53,9 +53,9 @@ return require('packer').startup({function(use)
       },
       config = [[require'mb.p.nvim-bqf']]
     },
-    {'glepnir/galaxyline.nvim',
-      config = [[require'mb.p.galaxyline']]
-    },
+--    {'glepnir/galaxyline.nvim',
+--      config = [[require'mb.p.galaxyline']]
+--    },
 --    {'ms-jpq/coq_nvim',
 --      branch = 'coq',
 --      config = [[require'mb.p.coq']]
@@ -174,8 +174,15 @@ return require('packer').startup({function(use)
       -- config = [[require'mb.p.gruvbox']]
     },
     {'folke/tokyonight.nvim',
-      config = [[require'mb.p.tokyonight']]
-    }
+      -- config = [[require'mb.p.tokyonight']]
+    },
+    {'projekt0n/github-nvim-theme',
+      requires = { 'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        config = [[require'mb.p.lualine']]
+      },
+      config = [[require'mb.p.github-nvim-theme']]
+    },
   }
 
   -- text objects
