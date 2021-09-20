@@ -7,9 +7,6 @@ k.nnoremap{ '<leader>bf', ':NvimTreeFindFile<CR>' }
 
 
 g.nvim_tree_width = '20%'
-g.nvim_tree_auto_open = 1
-g.nvim_tree_auto_close = 1
-g.nvim_tree_follow = 1
 g.nvim_tree_git_hl = 1
 g.nvim_tree_highlight_opened_files = 1
 g.nvim_tree_disable_netrw = 1
