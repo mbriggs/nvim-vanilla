@@ -19,6 +19,7 @@ for i = 1, 10 do g['loaded_' .. disabled_built_ins[i]] = 1 end
 cmd([[
   au BufRead,BufNewFile *.gohtml set ft=html
   au BufRead,BufNewFile .envrc* set ft=bash
+  au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 ]])
 
 require'mb.options'
