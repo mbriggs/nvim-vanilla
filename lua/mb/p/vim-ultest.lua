@@ -1,19 +1,22 @@
 local ultest = require'ultest'
-local cmd = vim.cmd
 local g = vim.g
-local k = vim.keymap
+local wk = require('which-key')
 
 g.ultest_use_pty = true
 
-k.nnoremap{ '<leader>tt', ':UltestNearest<CR>' }
-k.nnoremap{ '<leader>tf', ':Ultest<CR>' }
-k.nnoremap{ '<leader>td', ':UltestDebugNearest<CR>' }
-k.nnoremap{ '<leader>to', ':UltestOutput<CR>' }
-k.nnoremap{ '<leader>tx', ':UltestSummary<CR>' }
-k.nnoremap{ '<leader>ta', ':TestSuite<CR>' }
-k.nnoremap{ '<leader>tl', ':TestLast<CR>' }
-k.nnoremap{ '<leader>t.', ':TestVisit<CR>' }
-
+wk.register({
+  ['<leader>t'] = {
+    name = '+test',
+    t = { ':UltestNearest<cr>', 'Test Nearest' },
+    f = { ':Ultest<cr>', 'Test File' },
+    d = { ':UltestDebugNearest<cr>', 'Debug Nearest Test' },
+    o = { ':UltestOutput<cr>', 'Toggle Test Output' },
+    x = { ':UltestSummary<cr>', 'Toggle Test Summary' },
+    a = { ':TestSuite<cr>', 'Test Suite' },
+    l = { ':TestLast<cr>', 'Rerun Last Test' },
+    ['.'] = { ':TestVisit<cr>', 'Visit Test' },
+  }
+})
 
 ultest.setup({
   builders = {

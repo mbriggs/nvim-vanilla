@@ -1,9 +1,14 @@
-local k = vim.keymap
+local wk = require('which-key')
 local g = vim.g
 
-k.nnoremap{ '<leader>bb', ':NvimTreeToggle<CR>' }
-k.nnoremap{ '<leader>br', ':NvimTreeRefresh<CR>' }
-k.nnoremap{ '<leader>bf', ':NvimTreeFindFile<CR>' }
+wk.register({
+  ['<leader>b'] = {
+    name = '+tree',
+    b = { ':NvimTreeToggle<CR>', 'Toggle Tree' },
+    r = { ':NvimTreeRefresh<CR>', 'Refresh Tree' },
+    f = { ':NvimTreeFindFile<CR>', 'Find Current File In Tree' },
+  }
+})
 
 
 g.nvim_tree_width = '20%'

@@ -18,6 +18,15 @@ return require('packer').startup({function(use)
     opt = true
   }
 
+
+  --- load super early
+  use {
+    'tjdevries/astronauta.nvim',
+    {'folke/which-key.nvim',
+      config = [[require'mb.p.which-key']]
+    },
+  }
+
   ---- vim features
   -- Things that transparently add or augment features in neovim
   use {
@@ -69,7 +78,6 @@ return require('packer').startup({function(use)
     'famiu/nvim-reload',
     'famiu/bufdelete.nvim',
     'lambdalisue/vim-protocol',
-    'tjdevries/astronauta.nvim',
     'justinmk/vim-gtfo',
     'antoinemadec/FixCursorHold.nvim',
     'b3nj5m1n/kommentary',
