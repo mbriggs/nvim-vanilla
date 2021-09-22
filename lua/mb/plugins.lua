@@ -170,6 +170,11 @@ return require('packer').startup({function(use)
     'jgdavey/tslime.vim'
   }
 
+  use {'hoob3rt/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = [[require'mb.p.lualine']]
+  }
+
   -- colors
   use {
     {'rafamadriz/neon',
@@ -185,10 +190,6 @@ return require('packer').startup({function(use)
       -- config = [[require'mb.p.tokyonight']]
     },
     {'projekt0n/github-nvim-theme',
-      requires = { 'hoob3rt/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true},
-        config = [[require'mb.p.lualine']]
-      },
       config = [[require'mb.p.github-nvim-theme']]
     },
   }

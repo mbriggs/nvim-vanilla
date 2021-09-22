@@ -10,6 +10,18 @@ local g = vim.g
 
 _G.mb = {}
 
+-- figure out if we are in dark mode
+local pipe = io.popen("defaults read -g AppleInterfaceStyle")
+local style = pipe:read()
+pipe:close()
+
+if style ~= nil then
+  style = string.gsub(style, "%s+", "")
+end
+
+mb.dark = style == "Dark"
+
+
 -- Disable some built-in plugins we don't want
 local disabled_built_ins = {
   'gzip', 'man', 'matchit', 'matchparen', 'shada_plugin', 'tarPlugin', 'tar', 'zipPlugin', 'zip',

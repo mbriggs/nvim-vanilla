@@ -17,7 +17,7 @@ require'lspsaga'.init_lsp_saga{
 wk.register({
   ['<leader>.'] = { ':Lspsaga lsp_finder<CR>', 'Go To Definition' },
   ['g'] = {
-    a = { ':Lspsaga code_action<CR>', 'Code Action', mode = 'normal' },
+    a = { ':Lspsaga code_action<CR>', 'Code Action' },
     k = { ':Lspsaga hover_doc<CR>', 'Hover Doc'  },
     p = { ':Lspsaga signature_help<CR>', 'Signature Help'  },
     r = { ':Lspsaga rename<CR>', 'Rename'  },

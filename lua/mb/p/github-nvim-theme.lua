@@ -6,11 +6,11 @@ cmd('let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"')
 
 o.termguicolors = true
 
-function _G.mb.colors(mode)
+function _G.mb.colors()
   local theme = "light_default"
   local bg = "light"
 
-  if mode == "Dark" then
+  if mb.dark then
     bg = "dark"
     theme = "dimmed"
   end
@@ -23,17 +23,10 @@ function _G.mb.colors(mode)
     hide_inactive_statusline = true,
     sidebars = { "qf", "vista_kind", "terminal", "packer" },
     dark_sidebar = true,
+    colors = {
+    }
   })
 end
 
--- set default style to system
 
-local pipe = io.popen("defaults read -g AppleInterfaceStyle")
-local style = pipe:read()
-pipe:close()
-
-if style ~= nil then
-  style = string.gsub(style, "%s+", "")
-end
-
-mb.colors(style)
+mb.colors()
