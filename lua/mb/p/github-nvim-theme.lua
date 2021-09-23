@@ -19,12 +19,9 @@ function _G.mb.colors()
 
   require('github-theme').setup({
     theme_style = theme,
-    function_style = 'italic',
     hide_inactive_statusline = true,
     sidebars = { "qf", "vista_kind", "terminal", "packer" },
     dark_sidebar = true,
-    colors = {
-    }
   })
 end
 
