@@ -39,3 +39,8 @@ cmd([[
 require'mb.options'
 require'mb.plugins'
 require'mb.bindings'
+
+local wk = require('which-key')
+wk.register({
+  ['<leader>es'] = { '<cmd>PackerSync<cr>', 'Sync Plugins' }
+})

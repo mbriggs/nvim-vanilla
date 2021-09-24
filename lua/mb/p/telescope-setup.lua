@@ -2,8 +2,8 @@ local wk = require('which-key')
 
 wk.register({
   ['<leader>'] = {
-    ['<space>'] = { [[<cmd>Telescope find_files<cr>]], 'Find File' },
-    [';'] = { [[<cmd>Telescope oldfiles<cr>]], 'Find Old File' },
+    [';'] = { [[<cmd>Telescope find_files<cr>]], 'Find File' },
+    [':'] = { [[<cmd>Telescope oldfiles<cr>]], 'Find Old File' },
     ["'"] = { [[<cmd>Telescope resume<cr>]], 'Reopen Last Picker' },
     ['.'] = { [[<cmd>Telescope lsp_definitions<cr>]], 'Go to Definition' },
 

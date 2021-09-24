@@ -231,3 +231,4 @@ end, config = {
     threshold = 1 -- the amount in ms that a plugins load time must be over for it to be included in the profile
   }
 }})
+

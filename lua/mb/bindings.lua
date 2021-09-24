@@ -1,11 +1,13 @@
 require'astronauta.keymap'
 local k = vim.keymap
+local wk =  require('which-key')
+
+wk.register({
+  ['<leader><leader>'] = { '<c-^>', 'Jump to Previous File' }
+})
 
 -- enter clears hlsearch
 k.nnoremap{ '<CR>', ':nohlsearch<CR>:w<CR>' }
-
--- toggle last file
-k.nnoremap{ '<leader><leader>', '<c-^>' }
 
 -- dupe stuff
 k.vmap{ '<c-d>', 'mby`bp`bgv' }
