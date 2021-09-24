@@ -25,6 +25,7 @@ wk.register({
 
     c = {
       name = "+code",
+      c = { [[<cmd>Telescope lsp_code_actions<cr>]], 'Code Actions' },
       d = { [[<cmd>Telescope lsp_document_diagnostics<cr>]], 'Document Diagnostics' },
       w = { [[<cmd>Telescope lsp_workspace_diagnostics<cr>]], 'Workspace Diagnostics' },
     },

@@ -212,9 +212,9 @@ return require('packer').startup({function(use)
     {'williamboman/nvim-lsp-installer',
       config = [[require'mb.p.lspinstaller']]
     },
-    {'glepnir/lspsaga.nvim',
-      config = [[require'mb.p.lspsaga']]
-    },
+--    {'glepnir/lspsaga.nvim',
+--      config = [[require'mb.p.lspsaga']]
+--    },
     'nvim-lua/lsp-status.nvim',
     {'ray-x/lsp_signature.nvim',
       setup = [[require'mb.p.lsp_signature']]
