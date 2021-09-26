@@ -14,9 +14,7 @@ cmd [[packadd packer.nvim]]
 
 return require('packer').startup({function(use)
   ---- packer
-  use {'wbthomason/packer.nvim',
-    opt = true
-  }
+  use {'wbthomason/packer.nvim', opt = true}
 
 
   --- load super early
@@ -27,6 +25,17 @@ return require('packer').startup({function(use)
     },
   }
 
+  --- tree
+  use {
+    {"kyazdani42/nvim-web-devicons"},
+    {'kyazdani42/nvim-tree.lua',
+      config = [[require'mb.p.nvim-tree']]
+    },
+    {"projekt0n/circles.nvim",
+      config = [[require'mb.p.circles']]
+    }
+  }
+
   ---- vim features
   -- Things that transparently add or augment features in neovim
   use {
@@ -34,11 +43,8 @@ return require('packer').startup({function(use)
       run = ':TSUpdate',
       config = [[require'mb.p.treesitter']]
     },
-    {"projekt0n/circles.nvim",
-      requires = {{"kyazdani42/nvim-web-devicons"}, {"kyazdani42/nvim-tree.lua", opt = true}},
-      config = function()
-        require("circles").setup()
-      end
+    {'rhysd/vim-textobj-anyblock',
+      requires = 'kana/vim-textobj-user'
     },
     {"steelsojka/pears.nvim",
       config = [[require'pears'.setup()]]
@@ -73,6 +79,9 @@ return require('packer').startup({function(use)
       branch = 'master',
       config = [[require'mb.p.compe']]
     },
+    {'b3nj5m1n/kommentary',
+      config = [[require'mb.p.kommentary']]
+    },
     'dhruvasagar/vim-zoom',
     'dstein64/vim-startuptime',
     'famiu/nvim-reload',
@@ -80,7 +89,6 @@ return require('packer').startup({function(use)
     'lambdalisue/vim-protocol',
     'justinmk/vim-gtfo',
     'antoinemadec/FixCursorHold.nvim',
-    'b3nj5m1n/kommentary',
     'kana/vim-niceblock',
     'lambdalisue/suda.vim',
     'machakann/vim-highlightedyank',
@@ -132,9 +140,6 @@ return require('packer').startup({function(use)
     {'luissimas/eval.nvim',
       config = [[require'mb.p.eval']]
     },
-    {'kyazdani42/nvim-tree.lua',
-      config = [[require'mb.p.nvim-tree']]
-    },
     {'folke/todo-comments.nvim',
       requires = "nvim-lua/plenary.nvim",
       config = [[require'todo-comments'.setup{}]]
@@ -150,7 +155,6 @@ return require('packer').startup({function(use)
   use {
     'ruifm/gitlinker.nvim',
     'rhysd/git-messenger.vim',
-    {'TimUntersberger/neogit'},
     'tveskag/nvim-blame-line',
     {'lewis6991/gitsigns.nvim',
       requires = 'nvim-lua/plenary.nvim',
@@ -171,7 +175,7 @@ return require('packer').startup({function(use)
   }
 
   use {'hoob3rt/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    requires = {'kyazdani42/nvim-web-devicons'},
     config = [[require'mb.p.lualine']]
   }
 
@@ -192,16 +196,6 @@ return require('packer').startup({function(use)
     {'projekt0n/github-nvim-theme',
       config = [[require'mb.p.github-nvim-theme']]
     },
-  }
-
-  -- text objects
-  use {
-    'kana/vim-textobj-user',
-    'rhysd/vim-textobj-anyblock',
-    'wellle/targets.vim',
-    {'nvim-treesitter/nvim-treesitter-textobjects',
-      config = [[require'mb.p.treesitter-textobjects']]
-    }
   }
 
   -- LSP

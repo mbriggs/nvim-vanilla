@@ -1,4 +1,4 @@
-local function goimports() 
+local function goimports()
   return {
     exe = "goimports",
     args = {vim.api.nvim_buf_get_name(0)},
@@ -6,7 +6,7 @@ local function goimports()
   }
 end
 
-local function prettier() 
+local function prettier()
   return {
     exe = "prettier",
     args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), '--single-quote'},
@@ -22,7 +22,7 @@ require('formatter').setup({
     html = { prettier },
     json = { prettier },
     typescript = { prettier },
-    go = { goimports }
+    go = { goimports },
   }
 })
 

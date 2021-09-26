@@ -19,6 +19,14 @@ local function common_on_attach(client, bufnr)
   })
 end
 
+
+vim.api.nvim_exec([[
+augroup LSPFormat
+  autocmd!
+  autocmd BufWritePre *.rb,Gemfile lua vim.lsp.buf.formatting_sync()
+augroup END
+]], true)
+
 lsp_installer.on_server_ready(function(server)
     local opts = {
         on_attach = common_on_attach,

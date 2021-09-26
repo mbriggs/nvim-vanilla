@@ -75,7 +75,6 @@ dap.configurations.go = {
 }
 
 -- ruby
-
 dap.adapters.ruby = {
   type = 'executable';
   command = 'bundle';
