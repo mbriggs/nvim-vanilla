@@ -49,6 +49,11 @@ return require('packer').startup({function(use)
     {"steelsojka/pears.nvim",
       config = [[require'pears'.setup()]]
     },
+    {'nacro90/numb.nvim',
+      config = function()
+        require('numb').setup()
+      end
+    },
     {"yuttie/comfortable-motion.vim",
       config = [[require'mb.p.comfortable-motion']]
     },
@@ -90,7 +95,9 @@ return require('packer').startup({function(use)
     'justinmk/vim-gtfo',
     'antoinemadec/FixCursorHold.nvim',
     'kana/vim-niceblock',
-    'lambdalisue/suda.vim',
+    {'lambdalisue/suda.vim',
+      config = [[require'mb.p.suda']]
+    },
     'machakann/vim-highlightedyank',
     'ConradIrwin/vim-bracketed-paste',
     'tpope/vim-repeat',
@@ -203,12 +210,16 @@ return require('packer').startup({function(use)
     {'neovim/nvim-lspconfig',
       config = [[require'mb.p.lspconfig']]
     },
+    {'onsails/lspkind-nvim',
+      config = [[require'mb.p.lspkind']]
+    },
     {'williamboman/nvim-lsp-installer',
       config = [[require'mb.p.lspinstaller']]
     },
---    {'glepnir/lspsaga.nvim',
---      config = [[require'mb.p.lspsaga']]
---    },
+    {'weilbith/nvim-code-action-menu',
+      setup = [[require'mb.p.code-action-menu']],
+      cmd = 'CodeActionMenu'
+    },
     'nvim-lua/lsp-status.nvim',
     {'ray-x/lsp_signature.nvim',
       setup = [[require'mb.p.lsp_signature']]
