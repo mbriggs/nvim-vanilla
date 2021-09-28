@@ -73,17 +73,6 @@ return require('packer').startup({function(use)
       },
       config = [[require'mb.p.nvim-bqf']]
     },
---    {'glepnir/galaxyline.nvim',
---      config = [[require'mb.p.galaxyline']]
---    },
---    {'ms-jpq/coq_nvim',
---      branch = 'coq',
---      config = [[require'mb.p.coq']]
---    },
-    {'hrsh7th/nvim-compe',
-      branch = 'master',
-      config = [[require'mb.p.compe']]
-    },
     {'b3nj5m1n/kommentary',
       config = [[require'mb.p.kommentary']]
     },
@@ -107,6 +96,17 @@ return require('packer').startup({function(use)
     'google/vim-searchindex'
   }
 
+  -- completion
+  use {'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-calc',
+      'ray-x/cmp-treesitter',
+    },
+    config = [[require'mb.p.cmp']]
+  }
 
   ---- debugging
   use {

@@ -18,5 +18,8 @@ g.nvim_tree_lsp_diagnostics = 1
 
 require('nvim-tree').setup {
   open_on_setup = true,
-  hijack_cursor = true
+  hijack_cursor = true,
+  view = {
+    auto_resize = true
+  }
 }
