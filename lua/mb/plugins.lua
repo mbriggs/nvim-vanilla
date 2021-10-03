@@ -150,6 +150,10 @@ return require('packer').startup({function(use)
     {'luissimas/eval.nvim',
       config = [[require'mb.p.eval']]
     },
+    {'kdheepak/lazygit.nvim',
+      setup = [[require'mb.p.lazygit']],
+      cmd = 'LazyGit'
+    },
     {'folke/todo-comments.nvim',
       requires = "nvim-lua/plenary.nvim",
       config = [[require'todo-comments'.setup{}]]

@@ -49,7 +49,7 @@ wk.register({
 
     g = {
       name = '+git',
-      g = { [[<cmd>Telescope git_branches<cr>]], 'Git Branches' },
+      b = { [[<cmd>Telescope git_branches<cr>]], 'Git Branches' },
       c = { [[<cmd>Telescope git_bcommits<cr>]], 'Git Commits' },
       s = { [[<cmd>Telescope git_status<cr>]], 'Git Status' },
       t = { [[<cmd>Telescope git_stash<cr>]], 'Git Stashes' },
