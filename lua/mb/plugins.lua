@@ -49,6 +49,9 @@ return require('packer').startup({function(use)
     {"steelsojka/pears.nvim",
       config = [[require'pears'.setup()]]
     },
+    {'ironhouzi/starlite-nvim',
+      config = [[require'mb.p.starlite']]
+    },
     {'nacro90/numb.nvim',
       config = function()
         require('numb').setup()
@@ -228,6 +231,9 @@ return require('packer').startup({function(use)
       requires = "kyazdani42/nvim-web-devicons",
       setup = [[require'mb.p.lsp-trouble']],
       config = [[require"trouble".setup {}]]
+    },
+    {'kosayoda/nvim-lightbulb',
+      config = [[require"mb.p.lightbulb"]]
     }
   }
 end, config = {
