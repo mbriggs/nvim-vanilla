@@ -29,9 +29,3 @@ k.nnoremap{ '<s-l>', '$' }
 
 -- why isn't it this by default??
 k.nnoremap{ '<s-y>', 'y$' }
-
--- blank line below
-k.nnoremap{ ']<space>', 'mbo<esc>^d$`b' }
-
--- blank line above
-k.nnoremap{ '[<space>', 'mbO<esc>^d$`b' }
