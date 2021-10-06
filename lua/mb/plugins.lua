@@ -94,6 +94,11 @@ return require('packer').startup({function(use)
     'ConradIrwin/vim-bracketed-paste',
     'tpope/vim-repeat',
     'tpope/vim-surround',
+    'tpope/vim-unimpaired',
+    'tpope/vim-apathy',
+    'tpope/vim-eunuch',
+    'tpope/vim-jdaddy',
+    'tpope/vim-afterimage',
     'andymass/vim-matchup',
     'rhysd/committia.vim',
     'google/vim-searchindex'
