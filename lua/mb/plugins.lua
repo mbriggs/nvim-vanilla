@@ -79,10 +79,6 @@ return require('packer').startup({function(use)
     {'b3nj5m1n/kommentary',
       config = [[require'mb.p.kommentary']]
     },
-    'dhruvasagar/vim-zoom',
-    'dstein64/vim-startuptime',
-    'famiu/nvim-reload',
-    'famiu/bufdelete.nvim',
     'lambdalisue/vim-protocol',
     'justinmk/vim-gtfo',
     'antoinemadec/FixCursorHold.nvim',

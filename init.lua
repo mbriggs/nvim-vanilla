@@ -38,6 +38,7 @@ cmd([[
 
 require'mb.options'
 require'mb.plugins'
+require'mb.which-key'
 require'mb.bindings'
 
 local wk = require('which-key')

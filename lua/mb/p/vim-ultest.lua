@@ -1,22 +1,8 @@
 local ultest = require'ultest'
 local g = vim.g
-local wk = require('which-key')
 
 g.ultest_use_pty = true
 
-wk.register({
-  ['<leader>t'] = {
-    name = '+test',
-    t = { ':UltestNearest<cr>', 'Test Nearest' },
-    f = { ':Ultest<cr>', 'Test File' },
-    d = { ':UltestDebugNearest<cr>', 'Debug Nearest Test' },
-    o = { ':UltestOutput<cr>', 'Toggle Test Output' },
-    x = { ':UltestSummary<cr>', 'Toggle Test Summary' },
-    a = { ':TestSuite<cr>', 'Test Suite' },
-    l = { ':TestLast<cr>', 'Rerun Last Test' },
-    ['.'] = { ':TestVisit<cr>', 'Visit Test' },
-  }
-})
 
 ultest.setup({
   builders = {
