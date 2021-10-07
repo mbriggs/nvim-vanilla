@@ -41,13 +41,3 @@ require'mb.plugins'
 require'mb.which-key'
 require'mb.bindings'
 
-local wk = require('which-key')
-wk.register({
-  ['<leader>es'] = { '<cmd>PackerSync<cr>', 'Sync Plugins' },
-  ['<leader>q'] = {
-    name = '+quit',
-    q = { '<cmd>:qa<cr>', 'Quit' },
-    k = { '<cmd>:qa!<cr>', 'Quit without saving' },
-    w = { '<cmd>:wa | qa!<cr>', 'Quit and save' },
-  }
-})

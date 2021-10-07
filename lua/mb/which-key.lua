@@ -66,6 +66,7 @@ wk.register({
       o = { [[<cmd>Telescope quickfix<cr>]], 'Vim Options' },
       r = { '<cmd>SudaRead<cr>', 'Read file with sudo' },
       w = { '<cmd>SudaWrite<cr>', 'Write file with sudo' },
+      s = { '<cmd>PackerSync<cr>', 'Sync Plugins' },
     },
 
     m = {
@@ -119,6 +120,13 @@ wk.register({
       q = { "<cmd>LspTroubleToggle quickfix<cr>", "Toggle QuickFix" },
       l = { "<cmd>LspTroubleToggle loclist<cr>", "Toggle Location List" },
       t = { "<cmd>TodoTrouble<cr>", "Toggle TODOs" },
+    },
+
+    q = {
+      name = '+quit',
+      q = { '<cmd>:qa<cr>', 'Quit' },
+      k = { '<cmd>:qa!<cr>', 'Quit without saving' },
+      w = { '<cmd>:wa | qa!<cr>', 'Quit and save' },
     }
-  }
+  },
 })
