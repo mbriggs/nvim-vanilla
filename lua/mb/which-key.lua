@@ -1,5 +1,7 @@
 local wk = require("which-key")
 local dap = require'dap'
+local gl = require'gitlinker'
+local gla = require'gitlinker.actions'
 
 wk.register({
   ['<leader>'] = {
@@ -74,11 +76,25 @@ wk.register({
 
     g = {
       name = '+git',
-      b = { [[<cmd>Telescope git_branches<cr>]], 'Git Branches' },
       c = { [[<cmd>Telescope git_bcommits<cr>]], 'Git Commits' },
       s = { [[<cmd>Telescope git_status<cr>]], 'Git Status' },
       t = { [[<cmd>Telescope git_stash<cr>]], 'Git Stashes' },
       g = { [[<cmd>LazyGit<cr>]], 'LazyGit' },
+      b = { [[<cmd>GitMessenger<cr>]], 'Blame' },
+      l = {
+        function()
+          gl.get_buf_range_url("n", {
+            action_callback = gla.open_in_browser
+          })
+        end, 'Web Link', silent = true
+      },
+      L = {
+        function()
+          gl.get_buf_range_url("v", {
+            action_callback = gla.open_in_browser
+          })
+        end, 'Web Link', mode = 'v'
+      },
     },
 
 

@@ -101,6 +101,10 @@ return require('packer').startup({function(use)
   }
 
   -- completion
+  use {'onsails/lspkind-nvim',
+    config = [[require('lspkind').init({})]]
+  }
+
   use {'hrsh7th/nvim-cmp',
     requires = {
       'hrsh7th/cmp-nvim-lsp',
@@ -168,16 +172,18 @@ return require('packer').startup({function(use)
 
   -- git
   use {
-    'ruifm/gitlinker.nvim',
-    'rhysd/git-messenger.vim',
-    'tveskag/nvim-blame-line',
+    {'ruifm/gitlinker.nvim',
+      config = [[require'gitlinker'.setup()]]
+    },
+    {'rhysd/git-messenger.vim',
+      cmd = [[GitMessenger]]
+    },
     {'lewis6991/gitsigns.nvim',
       requires = 'nvim-lua/plenary.nvim',
       config = [[require'gitsigns'.setup()]]
     },
     {'pwntester/octo.nvim',
       config = [[require"octo".setup()]],
-      cmd = [[Octo]]
     }
   }
 
@@ -195,31 +201,14 @@ return require('packer').startup({function(use)
   }
 
   -- colors
-  use {
-    {'rafamadriz/neon',
-      -- config = [[require'mb.p.neon']]
-    },
-    {'bluz71/vim-nightfly-guicolors',
-      -- config = [[require'mb.p.nightfly']]
-    },
-    {'sainnhe/gruvbox-material',
-      -- config = [[require'mb.p.gruvbox']]
-    },
-    {'folke/tokyonight.nvim',
-      -- config = [[require'mb.p.tokyonight']]
-    },
-    {'projekt0n/github-nvim-theme',
+  use {'projekt0n/github-nvim-theme',
       config = [[require'mb.p.github-nvim-theme']]
-    },
   }
 
   -- LSP
   use {
     {'neovim/nvim-lspconfig',
       config = [[require'mb.p.lspconfig']]
-    },
-    {'onsails/lspkind-nvim',
-      config = [[require'mb.p.lspkind']]
     },
     {'williamboman/nvim-lsp-installer',
       config = [[require'mb.p.lspinstaller']]
