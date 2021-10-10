@@ -194,15 +194,7 @@ return require('packer').startup({function(use)
     'jgdavey/tslime.vim'
   }
 
-  use {'hoob3rt/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'},
-    config = [[require'mb.p.lualine']]
-  }
 
-  -- colors
-  use {'projekt0n/github-nvim-theme',
-      config = [[require'mb.p.github-nvim-theme']]
-  }
 
   -- LSP
   use {
@@ -225,6 +217,16 @@ return require('packer').startup({function(use)
     {'kosayoda/nvim-lightbulb',
       config = [[require"mb.p.lightbulb"]]
     }
+  }
+
+  -- colors
+  use {'monsonjeremy/onedark.nvim',
+    config = [[require'mb.p.onedark']]
+  }
+
+  use {'hoob3rt/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'},
+    config = [[require'mb.p.lualine']]
   }
 end, config = {
   profile = {
