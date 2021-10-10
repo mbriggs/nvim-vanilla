@@ -101,14 +101,11 @@ wk.register({
 
     t = {
       name = '+test',
-      t = { ':UltestNearest<cr>', 'Test Nearest' },
-      f = { ':Ultest<cr>', 'Test File' },
-      d = { ':UltestDebugNearest<cr>', 'Debug Nearest Test' },
-      o = { ':UltestOutput<cr>', 'Toggle Test Output' },
-      x = { ':UltestSummary<cr>', 'Toggle Test Summary' },
-      a = { ':TestSuite<cr>', 'Test Suite' },
-      l = { ':TestLast<cr>', 'Rerun Last Test' },
-      ['.'] = { ':TestVisit<cr>', 'Visit Test' },
+      t = { '<cmd>TestNearest<cr>', 'Test Nearest' },
+      f = { '<cmd>TestFile<cr>', 'Test File' },
+      a = { '<cmd>TestSuite<cr>', 'Test Suite' },
+      [';'] = { '<cmd>TestLast<cr>', 'Rerun Last Test' },
+      ['.'] = { '<cmd>TestVisit<cr>', 'Visit Test' },
     },
 
     x = {

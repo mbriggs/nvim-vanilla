@@ -147,10 +147,9 @@ return require('packer').startup({function(use)
   ---- toolbox
   -- adds tools to neovim
   use {
-    {'rcarriga/vim-ultest',
-      requires = {'janko/vim-test'},
-      run = ':UpdateRemotePlugins',
-      config = [[require'mb.p.vim-ultest']]
+    {'janko/vim-test',
+      requires = 'preservim/vimux',
+      config = [[require'mb.p.vim-test']]
     },
     {'luissimas/eval.nvim',
       config = [[require'mb.p.eval']]
@@ -218,9 +217,6 @@ return require('packer').startup({function(use)
       cmd = 'CodeActionMenu'
     },
     'nvim-lua/lsp-status.nvim',
-    {'ray-x/lsp_signature.nvim',
-      setup = [[require'mb.p.lsp_signature']]
-    },
     {'folke/lsp-trouble.nvim',
       requires = "kyazdani42/nvim-web-devicons",
       setup = [[require'mb.p.lsp-trouble']],

@@ -1,22 +1,6 @@
 local lsp_installer = require("nvim-lsp-installer")
 
 local function common_on_attach(client, bufnr)
-    -- ... set up buffer keymaps, etc.
-  require'lsp_signature'.on_attach({
-    bind = true,
-    doc_lines = 10,
-    floating_window = true,
-    hint_enable = false,
-    hint_scheme = "String",
-    use_lspsaga = false,
-    hi_parameter = "IncSearch",
-    max_height = 12,
-    max_width = 120,
-    handler_opts = {
-      border = "single"
-    },
-    extra_trigger_chars = {"(", ","}
-  })
 end
 
 
