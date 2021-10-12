@@ -7,13 +7,13 @@ cmd('let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"')
 o.termguicolors = true
 
 function _G.mb.colors()
-  local theme = "light_default"
-  local bg = "light"
+  -- local theme = "light_default"
+  -- local bg = "light"
 
-  if mb.dark then
-    bg = "dark"
-    theme = "dimmed"
-  end
+  -- if mb.dark then
+ local   bg = "dark"
+ local   theme = "dimmed"
+  -- end
 
   o.background = bg
 
