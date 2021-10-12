@@ -1,40 +1,76 @@
-local colors = mb.colors
+local var = "light_default"
 
--- local colors = {
---     none = "NONE",
---     bg = "#282c34",
---     bg2 = "#21252b",
---     bg_visual = "#393f4a",
---     border = "#646e82",
---     bg_highlight = "#242b38",
---     fg = "#abb2bf",
---     fg_light = "#adbac7",
---     fg_dark = "#798294",
---     fg_gutter = "#5c6370",
---     dark5 = "#abb2bf",
---     blue = "#61afef",
---     cyan = "#56b6c2",
---     purple = "#c678dd",
---     orange = "#d19a66",
---     yellow = "#e0af68",
---     yellow2 = "#e2c08d",
---     bg_yellow = "#ebd09c",
---     green = "#98c379",
---     red = "#e86671",
---     red1 = "#f65866",
---     git = { change = "#e0af68", add = "#109868", delete = "#9A353D", conflict = "#bb7a61" },
---     gitSigns = { change = "#e0af68", add = "#109868", delete = "#9A353D" },
---     diagnostics = {
---       error = "#db4b4b",
---       hint = "#1abc9c",
---       info = "#0db9d7",
---       warn = "#e0af68",
---     },
---   }
+if mb.dark == "Dark" then
+  var = "dimmed"
+end
 
 
+local colors = {
+  blue = {
+    dark = "#3b8eea",
+    dimmed = "#6cb6ff",
+    light = "#0451a5",
+    dark_default = "#58a6ff",
+    light_default = "#0366d6"
+  },
+  bg = {
+    dark = "#24292e",
+    dimmed = "#22272e",
+    light = "#ffffff",
+    dark_default = "#0d1117",
+    light_default = "#ffffff"
+  },
+  git = {
+    add = {
+      dark = "#34d058",
+      dimmed = "#6bc46d",
+      light = "#28a745",
+      dark_default = "#56d364",
+      light_default = "#22863a"
+    },
+    change = {
+      dark = "#79b8ff",
+      dimmed = "#daaa3f",
+      light = "#005cc8",
+      dark_default = "#ac8934",
+      light_default = "#b08800"
+    },
+    delete = {
+      dark = "#ea4a5a",
+      dimmed = "#b34642",
+      light = "#d73a49",
+      dark_default = "#f85149",
+      light_default = "#cb2431"
+    },
+  },
+  diag = {
+    error = {
+      dark = "#f97583",
+      dimmed = "#e5534b",
+      light = "#cb2431",
+      dark_default = "#f85149",
+      light_default = "#cb2431"
+    },
+    warning = {
+      dark = "#cca700",
+      dimmed = "#cca700",
+      light = "#bf8803",
+      dark_default = "#f0883e",
+      light_default = "#bf8803"
+    },
+    info = "#75beff",
+    hint = {
+      dark = "#eeeeb3",
+      dimmed = "#eeeeb3",
+      light = "#6c6c6c",
+      dark_default = "#eeeeb3",
+      light_default = "#6c6c6c"
+    },
+  }
+}
 
-local color_style = { bg = colors.bg_statusline, fg = colors.fg_dark }
+
+local color_style = { bg = colors.blue[var], fg = colors.bg[var] }
 local style = { a = color_style, b = color_style, c = color_style, }
 
 local theme = {
@@ -69,10 +105,10 @@ require('lualine').setup {
         'diagnostics',
         padding = 3,
         sources = {'nvim_lsp'},
-        color_error = color_style.fg,
-        color_warn = color_style.fg,
-        color_info = color_style.fg,
-        color_hint = color_style.fg,
+        color_error = colors.bg[var],
+        color_warn = colors.bg[var],
+        color_info = colors.bg[var],
+        color_hint = colors.bg[var],
       }
     },
 
