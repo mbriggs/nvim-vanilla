@@ -25,12 +25,58 @@ wk.register({
       f = { [[<cmd>Telescope live_grep<cr>]], 'Live Grep' },
       t = { [[<cmd>Telescope filetypes<cr>]], 'Filetypes' },
       s = { [[<cmd>Telescope search_history<cr>]], 'Previous Searches' },
+      g = { [[<cmd>Telescope git_files<cr>]], 'Git Files' },
     },
 
     o = {
-      name = '+open',
-      g = { [[<cmd>Telescope git_files<cr>]], 'Git Files' },
-      f = { [[<cmd>Telescope find_files<cr>]], 'Find File' },
+      name = '+octo',
+      p = {
+        name = '+pr',
+        n= { [[<cmd>Octo pr create<cr>]], 'Create PR' },
+        l = { [[<cmd>Octo pr list<cr>]], 'List Open PRs' },
+        o = { [[<cmd>Octo pr checkout<cr>]], 'Checkout current PR' },
+        e = { [[<cmd>Octo pr edit<cr>]], 'Edit PR' },
+        m = { [[<cmd>Octo pr merge<cr>]], 'Merge PR' },
+        c = { [[<cmd>Octo pr commits<cr>]], 'PR Commits' },
+        k = { [[<cmd>Octo pr checks<cr>]], 'State of PR Checks' },
+        d = { [[<cmd>Octo pr diff<cr>]], 'PR Diff' },
+        b = { [[<cmd>Octo pr browser<cr>]], 'Open PR in Browser' },
+        y = { [[<cmd>Octo pr url<cr>]], 'Copy PR URL to clipboard' },
+        r = { [[<cmd>Octo reviewer add<cr>]], 'Assign a PR reviewer' },
+        R = { [[<cmd>Octo pr reload<cr>]], 'Reload PR' },
+      },
+
+      c = {
+        name = '+comment',
+        a = { [[<cmd>Octo comment add<cr>]], 'Add a review comment' },
+        d = { [[<cmd>Octo comment delete<cr>]], 'Delete a review comment' },
+        r = { [[<cmd>Octo thread resolve<cr>]], 'Resolve thread' },
+        u = { [[<cmd>Octo thread unresolve<cr>]], 'Unresolve thread' },
+      },
+
+      l = {
+        name = '+label',
+        a = { [[<cmd>Octo label add<cr>]], 'Add a label' },
+        r = { [[<cmd>Octo label remove<cr>]], 'Remove a review comment' },
+        c = { [[<cmd>Octo label create<cr>]], 'Create a label' },
+      },
+
+      a = {
+        name = '+assignees',
+        a = { [[<cmd>Octo assignees add<cr>]], 'Assign a user' },
+        r = { [[<cmd>Octo assignees remove<cr>]], 'Unassign a user' },
+      },
+
+      r = {
+        name = '+reaction',
+        e = { [[<cmd>Octo reaction eyes<cr>]], 'Add 👀 reaction' },
+        l = { [[<cmd>Octo reaction laugh<cr>]], 'Add 😄 reaction' },
+        c = { [[<cmd>Octo reaction confused<cr>]], 'Add 😕 reaction' },
+        r = { [[<cmd>Octo reaction rocket<cr>]], 'Add 🚀 reaction' },
+        h = { [[<cmd>Octo reaction heart<cr>]], 'Add ❤️ reaction' },
+        t = { [[<cmd>Octo reaction tada<cr>]], 'Add 🎉 reaction' },
+      },
+
     },
 
     c = {
