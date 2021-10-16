@@ -10,12 +10,6 @@ wk.register({
     ["'"] = { [[<cmd>Telescope resume<cr>]], 'Reopen Last Picker' },
     ['.'] = { [[<cmd>Telescope lsp_definitions<cr>]], 'Go to Definition' },
 
-    b = {
-      name = '+tree',
-      b = { ':NvimTreeToggle<CR>', 'Toggle Tree' },
-      r = { ':NvimTreeRefresh<CR>', 'Refresh Tree' },
-      f = { ':NvimTreeFindFile<CR>', 'Find Current File In Tree' },
-    },
 
     f = {
       name = '+find',
@@ -100,9 +94,22 @@ wk.register({
       k = { function() require('dap.ui.variables').hover() end, 'Show Hover Information'}
     },
 
+    b = {
+      name = "+buffers",
+      b = { [[<cmd>Telescope buffers<cr>]], 'Switch Buffer' },
+      d = { [[<cmd>BufDel<cr>]], 'Delete Buffer' },
+      k = { [[<cmd>BufDel!<cr>]], 'Kill Buffer' },
+    },
+
+    t = {
+      name = '+tree',
+      t = { ':NvimTreeToggle<CR>', 'Toggle Tree' },
+      r = { ':NvimTreeRefresh<CR>', 'Refresh Tree' },
+      f = { ':NvimTreeFindFile<CR>', 'Find Current File In Tree' },
+    },
+
     e = {
       name = "+editor",
-      b = { [[<cmd>Telescope buffers<cr>]], 'Switch Buffer' },
       m = { [[<cmd>Telescope marks<cr>]], 'Marks' },
       h = { [[<cmd>Telescope help_tags<cr>]], 'Help Tag' },
       [';'] = { [[<cmd>Telescope commands<cr>]], 'Commands' },
@@ -145,7 +152,7 @@ wk.register({
     },
 
 
-    t = {
+    s = {
       name = '+test',
       t = { '<cmd>TestNearest<cr>', 'Test Nearest' },
       f = { '<cmd>TestFile<cr>', 'Test File' },

@@ -83,6 +83,9 @@ return require('packer').startup({function(use)
     'justinmk/vim-gtfo',
     'antoinemadec/FixCursorHold.nvim',
     'kana/vim-niceblock',
+    {'ojroques/nvim-bufdel',
+      config = [[require'mb.p.bufdel']]
+    },
     {'lambdalisue/suda.vim',
       config = [[require'mb.p.suda']]
     },
