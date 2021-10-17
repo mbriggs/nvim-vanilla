@@ -1,10 +1,3 @@
-local var = "light_default"
-
-if mb.dark == "Dark" then
-  var = "dimmed"
-end
-
-
 local colors = {
   blue = {
     dark = "#3b8eea",
@@ -69,17 +62,18 @@ local colors = {
   }
 }
 
-
-local color_style = { bg = colors.blue[var], fg = colors.bg[var] }
-local style = { a = color_style, b = color_style, c = color_style, }
+local function style(var)
+  local color_style = { bg = colors.blue[var], fg = colors.bg[var] }
+  return { a = color_style, b = color_style, c = color_style, }
+end
 
 local theme = {
-  normal = style,
-  insert = style,
-  command = style,
-  visual = style,
-  replace = style,
-  inactive = style,
+  normal = style("light_default"),
+  insert = style("light_default"),
+  command = style("light_default"),
+  visual = style("light_default"),
+  replace = style("light_default"),
+  inactive = style("dimmed"),
 }
 
 require('lualine').setup {
@@ -105,10 +99,10 @@ require('lualine').setup {
         'diagnostics',
         padding = 3,
         sources = {'nvim_lsp'},
-        color_error = colors.bg[var],
-        color_warn = colors.bg[var],
-        color_info = colors.bg[var],
-        color_hint = colors.bg[var],
+        color_error = colors.bg['light_default'],
+        color_warn = colors.bg['light_default'],
+        color_info = colors.bg['light_default'],
+        color_hint = colors.bg['light_default'],
       }
     },
 
@@ -134,7 +128,13 @@ require('lualine').setup {
   },
 
   inactive_sections = {
-    lualine_a = {},
+    lualine_a = {
+      {
+        'filename',
+         file_status = true,
+         path = 1
+      }
+    },
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
