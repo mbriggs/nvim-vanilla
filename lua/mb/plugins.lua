@@ -76,8 +76,11 @@ return require('packer').startup({function(use)
       },
       config = [[require'mb.p.nvim-bqf']]
     },
-    {'b3nj5m1n/kommentary',
-      config = [[require'mb.p.kommentary']]
+    -- {'b3nj5m1n/kommentary',
+    --   config = [[require'mb.p.kommentary']]
+    -- },
+    {'numToStr/Comment.nvim',
+      config = [[require'mb.p.comment']]
     },
     'lambdalisue/vim-protocol',
     'justinmk/vim-gtfo',
