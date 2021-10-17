@@ -6,5 +6,8 @@ ts_configs.setup {
   incremental_selection = {enable = false},
   refactor = {
     highlight_definitions = {enable = true}
+  },
+  autotag = {
+    enable = true,
   }
 }

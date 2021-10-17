@@ -36,18 +36,40 @@ return require('packer').startup({function(use)
     }
   }
 
+  -- completion
+  use {'onsails/lspkind-nvim',
+    config = [[require('lspkind').init({})]]
+  }
+
+  use {'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-calc',
+      'ray-x/cmp-treesitter',
+    },
+    config = [[require'mb.p.cmp']]
+  }
+
   ---- vim features
   -- Things that transparently add or augment features in neovim
   use {
     {'nvim-treesitter/nvim-treesitter',
+      requires = [[windwp/nvim-ts-autotag]],
       run = ':TSUpdate',
       config = [[require'mb.p.treesitter']]
     },
     {'rhysd/vim-textobj-anyblock',
       requires = 'kana/vim-textobj-user'
     },
-    {"steelsojka/pears.nvim",
-      config = [[require'pears'.setup()]]
+    -- {"steelsojka/pears.nvim",
+    --   config = [[require'pears'.setup()]]
+    -- },
+    {"windwp/nvim-autopairs",
+      config = [[require'mb.p.autopairs']]
+    },
+    {""
     },
     {'ironhouzi/starlite-nvim',
       config = [[require'mb.p.starlite']]
@@ -106,21 +128,6 @@ return require('packer').startup({function(use)
     'google/vim-searchindex'
   }
 
-  -- completion
-  use {'onsails/lspkind-nvim',
-    config = [[require('lspkind').init({})]]
-  }
-
-  use {'hrsh7th/nvim-cmp',
-    requires = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-calc',
-      'ray-x/cmp-treesitter',
-    },
-    config = [[require'mb.p.cmp']]
-  }
 
   ---- debugging
   use {
