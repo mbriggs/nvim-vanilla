@@ -120,6 +120,11 @@ wk.register({
       r = { '<cmd>SudaRead<cr>', 'Read file with sudo' },
       w = { '<cmd>SudaWrite<cr>', 'Write file with sudo' },
       s = { '<cmd>PackerSync<cr>', 'Sync Plugins' },
+      l = {
+        name = "+lsp",
+        f = { [[<cmd>LspInfo<cr>]], 'Info' },
+        i = { [[<cmd>LspInstallInfo<cr>]], 'Install' },
+      }
     },
 
     m = {
