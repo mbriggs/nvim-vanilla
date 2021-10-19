@@ -3,9 +3,9 @@ local dap = require'dap'
 local k = vim.keymap
 -- local g = vim.g
 
-k.nnoremap{ '<c-j>', function() dap.step_over() end }
-k.nnoremap{ '<c-k>', function() dap.step_into() end }
-k.nnoremap{ '<c-l>', function() dap.step_out() end }
+-- k.nnoremap{ '<c-j>', function() dap.step_over() end }
+-- k.nnoremap{ '<c-k>', function() dap.step_into() end }
+-- k.nnoremap{ '<c-l>', function() dap.step_out() end }
 -- ui
 
 -- k.nnoremap{ '<leader>du', function() ui.toggle() end }

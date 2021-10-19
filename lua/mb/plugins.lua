@@ -11,7 +11,6 @@ end
 
 cmd [[packadd packer.nvim]]
 
-
 return require('packer').startup({function(use)
   ---- packer
   use {'wbthomason/packer.nvim', opt = true}
@@ -37,6 +36,10 @@ return require('packer').startup({function(use)
   }
 
   -- completion
+  use {'hrsh7th/vim-vsnip',
+    config = [[require'mb.p.vsnip']]
+  }
+
   use {'onsails/lspkind-nvim',
     config = [[require('lspkind').init({})]]
   }

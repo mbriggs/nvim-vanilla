@@ -14,7 +14,11 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 ]], true)
 
 cmp.setup({
-  snippet = false,
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end
+  },
   mapping = {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
