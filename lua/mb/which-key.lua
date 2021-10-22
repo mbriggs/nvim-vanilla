@@ -75,6 +75,8 @@ wk.register({
 
     c = {
       name = "+code",
+      r = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename Variable'},
+      i = { '<cmd>lua vim.lsp.buf.hover()()<cr>', 'Info (hover)'},
       d = { [[<cmd>Telescope lsp_document_diagnostics<cr>]], 'Document Diagnostics' },
       w = { [[<cmd>Telescope lsp_workspace_diagnostics<cr>]], 'Workspace Diagnostics' },
       c = { '<cmd>CodeActionMenu<cr>', 'Code Actions' }

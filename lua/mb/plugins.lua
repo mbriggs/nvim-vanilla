@@ -66,13 +66,8 @@ return require('packer').startup({function(use)
     {'rhysd/vim-textobj-anyblock',
       requires = 'kana/vim-textobj-user'
     },
-    -- {"steelsojka/pears.nvim",
-    --   config = [[require'pears'.setup()]]
-    -- },
     {"windwp/nvim-autopairs",
       config = [[require'mb.p.autopairs']]
-    },
-    {""
     },
     {'ironhouzi/starlite-nvim',
       config = [[require'mb.p.starlite']]
@@ -219,6 +214,10 @@ return require('packer').startup({function(use)
   use {'projekt0n/github-nvim-theme',
       config = [[require'mb.p.github-nvim-theme']]
   }
+
+  -- use {'olimorris/onedarkpro.nvim',
+  --   config = [[require'mb.p.onedarkpro']]
+  -- }
 
   -- LSP
   use {

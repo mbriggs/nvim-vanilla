@@ -80,7 +80,7 @@ require('lualine').setup {
   options = {
     theme = theme,
     section_separators = {'', ''},
-    component_separators = {'', ''}
+    component_separators = {'', ''},
   },
 
   sections = {
@@ -142,7 +142,6 @@ require('lualine').setup {
     lualine_z = {},
   },
   extensions = {
-    'nvim-tree',
     'quickfix'
-  }
+  },
 }
