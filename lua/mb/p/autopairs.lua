@@ -5,7 +5,7 @@ ap.add_rules(require('nvim-autopairs.rules.endwise-elixir'))
 ap.add_rules(require('nvim-autopairs.rules.endwise-lua'))
 ap.add_rules(require('nvim-autopairs.rules.endwise-ruby'))
 
-require("nvim-autopairs.completion.cmp").setup({
+require("nvim-autopairs").setup({
   map_cr = true, --  map <CR> on insert mode
   map_complete = true, -- it will auto insert `(` (map_char) after select function or method item
   auto_select = true, -- automatically select the first item
