@@ -69,6 +69,9 @@ return require('packer').startup({function(use)
     {"windwp/nvim-autopairs",
       config = [[require'mb.p.autopairs']]
     },
+    {'phaazon/hop.nvim',
+      config = [[require'mb.p.hop']]
+    },
     {'ironhouzi/starlite-nvim',
       config = [[require'mb.p.starlite']]
     },
@@ -211,9 +214,12 @@ return require('packer').startup({function(use)
   }
 
   -- colors
-  use {'projekt0n/github-nvim-theme',
-      config = [[require'mb.p.github-nvim-theme']]
+  use {"Pocco81/Catppuccino.nvim",
+    config = [[require'mb.p.katpuccino']]
   }
+  -- use {'projekt0n/github-nvim-theme',
+  --     config = [[require'mb.p.github-nvim-theme']]
+  -- }
 
   -- use {'olimorris/onedarkpro.nvim',
   --   config = [[require'mb.p.onedarkpro']]
