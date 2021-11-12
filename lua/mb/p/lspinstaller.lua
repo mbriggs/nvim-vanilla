@@ -28,34 +28,40 @@ end)
 local lspconfig = require "lspconfig"
 local configs = require "lspconfig/configs"
 local go = require "nvim-lsp-installer.installers.go"
+local gem = require "nvim-lsp-installer.installers.gem"
 local servers = require "nvim-lsp-installer.servers"
 local server = require "nvim-lsp-installer.server"
 local path = require "nvim-lsp-installer.path"
 
-local server_name = "golangci-lint"
+local function golanglint()
+  local server_name = "golangci-lint"
 
-configs[server_name] = {
-    default_config = {
-        cmd = {'golangci-lint-langserver'},
-        init_options = {
-            command = { "golangci-lint", "run", "-p", "bugs,error,sql", "--out-format", "json" };
-        },
-        filetypes = { "go" },
-        root_dir = lspconfig.util.root_pattern "go.mod",
-    },
-}
+  configs[server_name] = {
+      default_config = {
+          cmd = {'golangci-lint-langserver'},
+          init_options = {
+              command = { "golangci-lint", "run", "-p", "bugs,error,sql", "--out-format", "json" };
+          },
+          filetypes = { "go" },
+          root_dir = lspconfig.util.root_pattern "go.mod",
+      },
+  }
 
 
-local root_dir = server.get_server_root_path(server_name)
-local my_installer = go.packages { "github.com/nametake/golangci-lint-langserver@latest" }
+  local root_dir = server.get_server_root_path(server_name)
+  local my_installer = go.packages { "github.com/nametake/golangci-lint-langserver@latest" }
 
-local my_server = server.Server:new {
-    name = server_name,
-    root_dir = root_dir,
-    installer = my_installer,
-    default_options = {
-        cmd = { path.concat { root_dir, "golangci-lint-langserver" } },
-    },
-}
+  local my_server = server.Server:new {
+      name = server_name,
+      root_dir = root_dir,
+      installer = my_installer,
+      default_options = {
+          cmd = { path.concat { root_dir, "golangci-lint-langserver" } },
+      },
+  }
 
-servers.register(my_server)
+  return my_server
+end
+
+
+servers.register(golanglint())

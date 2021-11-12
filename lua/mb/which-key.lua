@@ -22,8 +22,8 @@ wk.register({
       g = { [[<cmd>Telescope git_files<cr>]], 'Git Files' },
     },
 
-    o = {
-      name = '+octo',
+    h = {
+      name = '+github',
       p = {
         name = '+pr',
         n= { [[<cmd>Octo pr create<cr>]], 'Create PR' },

@@ -1,4 +1,4 @@
-local catppuccino = require("catppuccino")
+local catppucin = require("catppuccin")
 
 local cmd = vim.cmd
 local o = vim.o
@@ -9,7 +9,7 @@ cmd('let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"')
 o.termguicolors = true
 
 -- configure it
-catppuccino.setup({
+catppucin.setup({
   colorscheme = "dark_catppuccino",
   transparency = false,
   term_colors = false,
@@ -64,4 +64,4 @@ catppuccino.setup({
   }
 })
 
-cmd[[colorscheme catppuccino]]
+cmd[[colorscheme catppuccin]]

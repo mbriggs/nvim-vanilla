@@ -1,6 +1,7 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 local cmd = vim.cmd
+local g = vim.g
 
 local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
 
@@ -15,13 +16,13 @@ return require('packer').startup({function(use)
   ---- packer
   use {'wbthomason/packer.nvim', opt = true}
 
-
   --- load super early
   use {
     'tjdevries/astronauta.nvim',
-    {'folke/which-key.nvim',
-      config = [[require'mb.p.which-key']]
-    },
+  }
+
+  use {'folke/which-key.nvim',
+    config = [[require'mb.p.which-key']]
   }
 
   --- tree
@@ -179,6 +180,11 @@ return require('packer').startup({function(use)
     {'mhartington/formatter.nvim',
       config = [[require'mb.p.formatter']]
     },
+    {'kristijanhusak/orgmode.nvim',
+      ft = {'org'},
+      config = [[require'mb.p.org']]
+    },
+    'kevinhwang91/rnvimr',
     'lambdalisue/reword.vim',
     'alvan/vim-closetag'
   }
@@ -214,8 +220,8 @@ return require('packer').startup({function(use)
   }
 
   -- colors
-  use {"Pocco81/Catppuccino.nvim",
-    config = [[require'mb.p.katpuccino']]
+  use {"catppuccin/nvim",
+    config = [[require'mb.p.catppucin']]
   }
   -- use {'projekt0n/github-nvim-theme',
   --     config = [[require'mb.p.github-nvim-theme']]
