@@ -25,17 +25,6 @@ return require('packer').startup({function(use)
     config = [[require'mb.p.which-key']]
   }
 
-  --- tree
-  use {
-    {"kyazdani42/nvim-web-devicons"},
-    {'kyazdani42/nvim-tree.lua',
-      config = [[require'mb.p.nvim-tree']]
-    },
-    {"projekt0n/circles.nvim",
-      config = [[require'mb.p.circles']]
-    }
-  }
-
   -- completion
   use {'hrsh7th/vim-vsnip',
     config = [[require'mb.p.vsnip']]
@@ -184,7 +173,9 @@ return require('packer').startup({function(use)
       ft = {'org'},
       config = [[require'mb.p.org']]
     },
-    'kevinhwang91/rnvimr',
+    {'mcchrish/nnn.vim',
+      config = [[require'mb.p.nnn']],
+    },
     'lambdalisue/reword.vim',
     'alvan/vim-closetag'
   }
@@ -221,7 +212,8 @@ return require('packer').startup({function(use)
 
   -- colors
   use {"catppuccin/nvim",
-    config = [[require'mb.p.catppucin']]
+    config = [[require'mb.p.catppucin']],
+    branch = "main"
   }
   -- use {'projekt0n/github-nvim-theme',
   --     config = [[require'mb.p.github-nvim-theme']]

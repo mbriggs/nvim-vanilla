@@ -10,7 +10,6 @@ wk.register({
     ["'"] = { [[<cmd>Telescope resume<cr>]], 'Reopen Last Picker' },
     ['.'] = { [[<cmd>Telescope lsp_definitions<cr>]], 'Go to Definition' },
 
-
     f = {
       name = '+find',
       b = { [[<cmd>Telescope current_buffer_fuzzy_find<cr>]], 'Find within buffer' },
@@ -75,6 +74,10 @@ wk.register({
 
     c = {
       name = "+code",
+      e = { '<cmd>NnnExplorer %:p:h<cr>', 'Explore' },
+      E = { '<cmd>NnnExplorer<cr>', 'Explore (from root)' },
+      p = { '<cmd>NnnPicker %:p:h<cr>', 'Picker' },
+      P = { '<cmd>NnnPicker<cr>', 'Picker (from root)' },
       r = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename Variable'},
       i = { '<cmd>lua vim.lsp.buf.hover()()<cr>', 'Info (hover)'},
       d = { [[<cmd>Telescope lsp_document_diagnostics<cr>]], 'Document Diagnostics' },
@@ -101,13 +104,6 @@ wk.register({
       b = { [[<cmd>Telescope buffers<cr>]], 'Switch Buffer' },
       d = { [[<cmd>BufDel<cr>]], 'Delete Buffer' },
       k = { [[<cmd>BufDel!<cr>]], 'Kill Buffer' },
-    },
-
-    t = {
-      name = '+tree',
-      t = { ':NvimTreeToggle<CR>', 'Toggle Tree' },
-      r = { ':NvimTreeRefresh<CR>', 'Refresh Tree' },
-      f = { ':NvimTreeFindFile<CR>', 'Find Current File In Tree' },
     },
 
     e = {
@@ -160,7 +156,7 @@ wk.register({
     },
 
 
-    s = {
+    t = {
       name = '+test',
       t = { '<cmd>TestNearest<cr>', 'Test Nearest' },
       f = { '<cmd>TestFile<cr>', 'Test File' },
