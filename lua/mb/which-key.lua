@@ -10,6 +10,8 @@ wk.register({
     [':'] = { [[<cmd>Telescope oldfiles<cr>]], 'Find Old File' },
     ["'"] = { [[<cmd>Telescope resume<cr>]], 'Reopen Last Picker' },
     ['.'] = { [[<cmd>Telescope lsp_definitions<cr>]], 'Go to Definition' },
+    [','] = { '<cmd>NnnPicker %:p:h<cr>', 'File Picker' },
+    ['|'] = { '<cmd>NnnExplorer %:p:h<cr>', 'Explore Files' },
     ['/'] = { function()
                 if o.laststatus == 0 then
                   o.laststatus = 2
