@@ -2,6 +2,7 @@ local wk = require("which-key")
 local dap = require'dap'
 local gl = require'gitlinker'
 local gla = require'gitlinker.actions'
+local o = vim.o
 
 wk.register({
   ['<leader>'] = {
@@ -9,6 +10,13 @@ wk.register({
     [':'] = { [[<cmd>Telescope oldfiles<cr>]], 'Find Old File' },
     ["'"] = { [[<cmd>Telescope resume<cr>]], 'Reopen Last Picker' },
     ['.'] = { [[<cmd>Telescope lsp_definitions<cr>]], 'Go to Definition' },
+    ['/'] = { function()
+                if o.laststatus == 0 then
+                  o.laststatus = 2
+                else
+                  o.laststatus = 0
+                end
+              end, 'Toggle Status Bar' },
 
     f = {
       name = '+find',
@@ -19,6 +27,10 @@ wk.register({
       t = { [[<cmd>Telescope filetypes<cr>]], 'Filetypes' },
       s = { [[<cmd>Telescope search_history<cr>]], 'Previous Searches' },
       g = { [[<cmd>Telescope git_files<cr>]], 'Git Files' },
+    },
+
+    o = {
+      name = "+org",
     },
 
     h = {

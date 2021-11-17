@@ -145,3 +145,6 @@ require('lualine').setup {
     'quickfix'
   },
 }
+
+-- hide by default
+vim.o.laststatus = 0
