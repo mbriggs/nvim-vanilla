@@ -12,7 +12,11 @@ parser_config.org = {
 
 ts_configs.setup {
   ensure_installed = 'maintained',
-  highlight = {enable = true, use_languagetree = true},
+  highlight = {
+    enable = true,
+    use_languagetree = true,
+    additional_vim_regex_highlighting = {'org'},
+  },
   indent = {enable = true},
   incremental_selection = {enable = false},
   refactor = {

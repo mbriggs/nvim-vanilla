@@ -32,6 +32,7 @@ cmp.setup({
     { name = 'path' },
     { name = 'calc' },
     { name = 'treesitter' },
+    { name = 'orgmode' },
   },
   documentation = {
     border = "rounded"
