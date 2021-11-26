@@ -7,7 +7,7 @@ end
 vim.api.nvim_exec([[
 augroup LSPFormat
   autocmd!
-  autocmd BufWritePre *.rb,Gemfile lua vim.lsp.buf.formatting_sync()
+  autocmd BufWritePre *.rb,Gemfile,*.go lua vim.lsp.buf.formatting_sync()
 augroup END
 ]], true)
 

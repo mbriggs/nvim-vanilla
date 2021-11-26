@@ -10,6 +10,14 @@ parser_config.org = {
   filetype = 'org',
 }
 
+parser_config.norg = {
+    install_info = {
+        url = "https://github.com/nvim-neorg/tree-sitter-norg",
+        files = { "src/parser.c", "src/scanner.cc" },
+        branch = "main"
+    },
+}
+
 ts_configs.setup {
   ensure_installed = 'maintained',
   highlight = {
@@ -18,7 +26,15 @@ ts_configs.setup {
     additional_vim_regex_highlighting = {'org'},
   },
   indent = {enable = true},
-  incremental_selection = {enable = false},
+  incremental_selection = {
+    keymaps = {
+      init_selection = '<C-D>',
+      scope_incremental = '<C-S-D>',
+      node_incremental = '<C-D>',
+      node_decremental = '<S-D>'
+    },
+    enable = true
+  },
   refactor = {
     highlight_definitions = {enable = true}
   },

@@ -22,13 +22,13 @@ require('formatter').setup({
     html = { prettier },
     json = { prettier },
     typescript = { prettier },
-    go = { goimports },
+    -- go = { goimports },
   }
 })
 
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.css,*.html,*.json,*.ts,*.tsx,*.go FormatWrite
+  autocmd BufWritePost *.js,*.css,*.html,*.json,*.ts,*.tsx FormatWrite
 augroup END
 ]], true)

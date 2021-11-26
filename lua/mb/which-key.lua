@@ -3,6 +3,7 @@ local dap = require'dap'
 local gl = require'gitlinker'
 local gla = require'gitlinker.actions'
 local o = vim.o
+local opt = vim.opt
 
 wk.register({
   ['<leader>'] = {
@@ -12,13 +13,7 @@ wk.register({
     ['.'] = { [[<cmd>Telescope lsp_definitions<cr>]], 'Go to Definition' },
     [','] = { '<cmd>NnnPicker %:p:h<cr>', 'File Picker' },
     ['|'] = { '<cmd>NnnExplorer %:p:h<cr>', 'Explore Files' },
-    ['/'] = { function()
-                if o.laststatus == 0 then
-                  o.laststatus = 2
-                else
-                  o.laststatus = 0
-                end
-              end, 'Toggle Status Bar' },
+    ['/'] = { function() print('Current Buffer: '..vim.api.nvim_buf_get_name(0)) end, 'Current Buffer' },
 
     f = {
       name = '+find',
@@ -29,10 +24,8 @@ wk.register({
       t = { [[<cmd>Telescope filetypes<cr>]], 'Filetypes' },
       s = { [[<cmd>Telescope search_history<cr>]], 'Previous Searches' },
       g = { [[<cmd>Telescope git_files<cr>]], 'Git Files' },
-    },
-
-    o = {
-      name = "+org",
+      m = { [[<cmd>Telescope lsp_document_symbols<cr>]], 'Document Symbols' },
+      w = { [[<cmd>Telescope lsp_dynamic_workspace_symbols<cr>]], 'Workspace Symbols' },
     },
 
     h = {
@@ -140,11 +133,6 @@ wk.register({
       }
     },
 
-    m = {
-      name = '+symbols',
-      m = { [[<cmd>Telescope lsp_document_symbols<cr>]], 'Document Symbols' },
-      w = { [[<cmd>Telescope lsp_dynamic_workspace_symbols<cr>]], 'Workspace Symbols' },
-    },
 
     g = {
       name = '+git',

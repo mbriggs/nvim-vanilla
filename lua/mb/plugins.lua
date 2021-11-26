@@ -151,6 +151,9 @@ return require('packer').startup({function(use)
   ---- toolbox
   -- adds tools to neovim
   use {
+    {'ldelossa/calltree.nvim',
+      config = [[require'mb.p.calltree']],
+    },
     {'janko/vim-test',
       requires = 'preservim/vimux',
       config = [[require'mb.p.vim-test']]
@@ -169,9 +172,9 @@ return require('packer').startup({function(use)
     {'mhartington/formatter.nvim',
       config = [[require'mb.p.formatter']]
     },
-    {'kristijanhusak/orgmode.nvim',
-      ft = {'org'},
-      config = [[require'mb.p.org']]
+    {'nvim-neorg/neorg',
+      requires = "nvim-lua/plenary.nvim",
+      config = [[require'mb.p.neorg']]
     },
     {'mcchrish/nnn.vim',
       config = [[require'mb.p.nnn']],
@@ -205,10 +208,10 @@ return require('packer').startup({function(use)
     'jgdavey/tslime.vim'
   }
 
-  use {'hoob3rt/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'},
-    config = [[require'mb.p.lualine']]
-  }
+  -- use {'hoob3rt/lualine.nvim',
+  --   requires = {'kyazdani42/nvim-web-devicons'},
+  --   config = [[require'mb.p.lualine']]
+  -- }
 
   -- colors
   use {"catppuccin/nvim",
