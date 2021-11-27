@@ -10,6 +10,7 @@ wk.register({
     [';'] = { [[<cmd>Telescope find_files<cr>]], 'Find File' },
     [':'] = { [[<cmd>Telescope oldfiles<cr>]], 'Find Old File' },
     ["'"] = { [[<cmd>Telescope resume<cr>]], 'Reopen Last Picker' },
+    ['"'] = { function() require('rose-pine.functions').toggle_variant({ 'moon', 'dawn' }) end, 'Toggle Light / Dark'},
     ['.'] = { [[<cmd>Telescope lsp_definitions<cr>]], 'Go to Definition' },
     [','] = { '<cmd>NnnPicker %:p:h<cr>', 'File Picker' },
     ['|'] = { '<cmd>NnnExplorer %:p:h<cr>', 'Explore Files' },

@@ -214,10 +214,18 @@ return require('packer').startup({function(use)
   -- }
 
   -- colors
-  use {"catppuccin/nvim",
-    config = [[require'mb.p.catppucin']],
-    branch = "main"
+  -- use {"catppuccin/nvim",
+  --   config = [[require'mb.p.catppucin']],
+  --   branch = "main"
+  -- }
+  use {"rose-pine/neovim",
+    as = 'rose-pine',
+    config = [[require'mb.p.rose-pine']],
   }
+
+  -- use {"bluz71/vim-moonfly-colors",
+  --   config = [[require'mb.p.moonfly']]
+  -- }
   -- use {'projekt0n/github-nvim-theme',
   --     config = [[require'mb.p.github-nvim-theme']]
   -- }

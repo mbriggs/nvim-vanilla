@@ -41,3 +41,26 @@ require'mb.plugins'
 require'mb.which-key'
 require'mb.bindings'
 
+-- cmd([[
+-- " Background colors for active vs inactive windows
+-- hi ActiveWindow guibg=#17252c
+-- hi InactiveWindow guibg=#0D1B22
+-- hi ActiveTerminal guibg=#333333
+--
+-- " Call method on window enter
+-- augroup WindowManagement
+--   autocmd!
+--   autocmd WinEnter * call Handle_Win_Enter()
+-- augroup END
+--
+-- " Change highlight group of preview window when open
+-- function! Handle_Win_Enter()
+--   if &previewwindow
+--     setlocal winhighlight=Normal:MarkdownError
+--   elseif &buftype ==# 'terminal'
+--     setlocal winhighlight=Normal:ActiveTerminal
+--   else
+--     setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
+--   endif
+-- endfunction
+-- ]])
