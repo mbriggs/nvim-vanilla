@@ -12,8 +12,7 @@ function P.wk_config()
   wk.register({
     ['<leader>'] = {
       [';'] = { [[<cmd>Telescope find_files<cr>]], 'Find File' },
-      [':'] = { [[<cmd>Telescope oldfiles<cr>]], 'Find Old File' },
-      ["'"] = { [[<cmd>Telescope resume<cr>]], 'Reopen Last Picker' },
+      ["'"] = { [[<cmd>Telescope oldfiles<cr>]], 'Find Old File' },
       ['.'] = { [[<cmd>Telescope lsp_definitions<cr>]], 'Go to Definition' },
       [','] = { '<cmd>NnnPicker %:p:h<cr>', 'File Picker' },
       ['|'] = { '<cmd>NnnExplorer %:p:h<cr>', 'Explore Files' },
@@ -185,6 +184,7 @@ function P.wk_config()
       q = {
         name = '+quit',
         q = { '<cmd>:qa<cr>', 'Quit' },
+        c = { '<cmd>:q!', 'Close'},
         k = { '<cmd>:qa!<cr>', 'Quit without saving' },
         w = { '<cmd>:wa | qa!<cr>', 'Quit and save' },
       }
@@ -196,6 +196,9 @@ function P.install(use)
   if P.installed then
     return
   end
+
+  require("mb.debugging").install(use)
+  require("mb.git").install(use)
 
   use { 'folke/which-key.nvim', config = P.wk_config }
 
