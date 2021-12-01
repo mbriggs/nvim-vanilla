@@ -21,6 +21,13 @@ function P.ap_config()
   })
 end
 
+function P.mu_config()
+  require'nvim-treesitter.configs'.setup {
+    matchup = { enable = true }
+  }
+
+end
+
 function P.sl_config()
   local k = vim.keymap
   local starlite = require("starlite")
@@ -83,39 +90,15 @@ function P.bqf_config()
   })
 end
 
-function P.fmt_config()
-  local function prettier()
-    return {
-      exe = "prettier",
-      args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), '--single-quote'},
-      stdin = true
-    }
-  end
-
-  require('formatter').setup({
-    logging = false,
-    filetype = {
-      javascript = { prettier },
-      css = { prettier },
-      html = { prettier },
-      json = { prettier },
-      typescript = { prettier },
-      -- go = { goimports },
-    }
-  })
-
-  vim.api.nvim_exec([[
-  augroup FormatAutogroup
-    autocmd!
-    autocmd BufWritePost *.js,*.css,*.html,*.json,*.ts,*.tsx FormatWrite
-  augroup END
-  ]], true)
-end
-
 function P.install(use)
   if P.installed then
     return
   end
+
+  -- required for matchup
+  require("mb.syntax").install(use)
+
+  vim.g.matchup_matchparen_offscreen = { method = "popup" }
 
   use {
     { "windwp/nvim-autopairs", config = P.ap_config },
@@ -125,7 +108,6 @@ function P.install(use)
     { 'numToStr/Comment.nvim', config = P.cmnt_config },
     { 'phaazon/hop.nvim', config = P.hop_config },
     { 'ojroques/nvim-bufdel', config = P.bd_config },
-    { 'mhartington/formatter.nvim', config = P.fmt_config },
     { 'janko/vim-test',
       requires = 'preservim/vimux',
       config = [[vim.g['test#strategy'] = 'vimux']],
@@ -144,6 +126,7 @@ function P.install(use)
       },
       config = P.bqf_config
     },
+    { 'andymass/vim-matchup', config = P.mu_config },
     'lambdalisue/suda.vim',
     'machakann/vim-highlightedyank',
     'ConradIrwin/vim-bracketed-paste',
@@ -156,7 +139,6 @@ function P.install(use)
     'tpope/vim-eunuch',
     'tpope/vim-jdaddy',
     'tpope/vim-afterimage',
-    'andymass/vim-matchup',
     'google/vim-searchindex',
     'lambdalisue/reword.vim',
     'alvan/vim-closetag',

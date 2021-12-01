@@ -1,10 +1,5 @@
 require'astronauta.keymap'
 local k = vim.keymap
-local wk =  require('which-key')
-
-wk.register({
-  ['<leader><leader>'] = { '<c-^>', 'Jump to Previous File' }
-})
 
 -- enter clears hlsearch
 k.nnoremap{ '<CR>', ':nohlsearch<CR>:w<CR>' }
