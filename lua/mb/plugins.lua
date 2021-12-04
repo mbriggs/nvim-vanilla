@@ -28,7 +28,6 @@ return require("packer").startup({
 		require("mb.motion").install(use)
 		require("mb.syntax").install(use)
 		require("mb.core").install(use)
-		require("mb.debugging").install(use)
 		require("mb.telescope").install(use)
 		require("mb.explorer").install(use)
 		require("mb.git").install(use)

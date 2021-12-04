@@ -5,7 +5,6 @@ local opt = vim.opt
 
 function P.wk_config()
 	local wk = require("which-key")
-	local dap = require("dap")
 	local gl = require("gitlinker")
 	local gla = require("gitlinker.actions")
 
@@ -95,69 +94,6 @@ function P.wk_config()
 				w = { [[<cmd>Telescope lsp_workspace_diagnostics<cr>]], "Workspace Diagnostics" },
 				c = { "<cmd>CodeActionMenu<cr>", "Code Actions" },
 			},
-			d = {
-				name = "+debug",
-				d = {
-					function()
-						dap.toggle_breakpoint()
-					end,
-					"Toggle Breakpoint",
-				},
-				b = {
-					function()
-						dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-					end,
-					"Toggle Breakpoint Condition",
-				},
-				l = {
-					function()
-						dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-					end,
-					"Toggle Log Point",
-				},
-				c = {
-					function()
-						dap.continue()
-					end,
-					"Continue",
-				},
-				o = {
-					function()
-						dap.step_over()
-					end,
-					"Step Over (c-j)",
-				},
-				i = {
-					function()
-						dap.step_over()
-					end,
-					"Step Into (c-k)",
-				},
-				t = {
-					function()
-						dap.step_over()
-					end,
-					"Step Out (c-l)",
-				},
-				r = {
-					function()
-						dap.repl.open()
-					end,
-					"Open REPL",
-				},
-				R = {
-					function()
-						dap.run_last()
-					end,
-					"Run Last Configuration",
-				},
-				k = {
-					function()
-						require("dap.ui.variables").hover()
-					end,
-					"Show Hover Information",
-				},
-			},
 			b = {
 				name = "+buffers",
 				b = { [[<cmd>Telescope buffers<cr>]], "Switch Buffer" },
@@ -244,7 +180,6 @@ function P.install(use)
 		return
 	end
 
-	require("mb.debugging").install(use)
 	require("mb.git").install(use)
 
 	use({ "folke/which-key.nvim", config = P.wk_config })
