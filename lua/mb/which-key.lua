@@ -28,6 +28,7 @@ function P.wk_config()
 			f = {
 				name = "+find",
 				b = { [[<cmd>Telescope current_buffer_fuzzy_find<cr>]], "Find within buffer" },
+				k = { [[<cmd>Telescope dap list_breakpoints<cr>]], "Find Breakpoints" },
 				r = { [[<cmd>Telescope lsp_references<cr>]], "Find References" },
 				i = { [[<cmd>Telescope lsp_implementations<cr>]], "Find Implementations" },
 				f = { [[<cmd>Telescope live_grep<cr>]], "Live Grep" },
@@ -230,9 +231,9 @@ function P.wk_config()
 			q = {
 				name = "+quit",
 				q = { "<cmd>:qa<cr>", "Quit" },
-				c = { "<cmd>:q!", "Close" },
+				c = { "<cmd>:q!<cr>", "Close" },
 				k = { "<cmd>:qa!<cr>", "Quit without saving" },
-				w = { "<cmd>:wa | qa!<cr>", "Quit and save" },
+				s = { "<cmd>:wa | qa!<cr>", "Quit and save" },
 			},
 		},
 	})
