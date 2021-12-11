@@ -1,5 +1,9 @@
 local P = { installed = false }
 
+function P.alpha_config()
+	require("alpha").setup(require("alpha.themes.startify").opts)
+end
+
 function P.ap_config()
 	local ap = require("nvim-autopairs")
 
@@ -232,21 +236,37 @@ function P.install(use)
 		},
 		{ "andymass/vim-matchup", config = P.mu_config },
 		{ "sindrets/winshift.nvim", config = P.ws_config },
-		"lambdalisue/suda.vim",
-		"machakann/vim-highlightedyank",
+		{ "goolord/alpha-nvim", config = P.alpha_config },
+		{
+			"sQVe/sort.nvim",
+			config = function()
+				require("sort").setup({
+					delimiters = {
+						",",
+						"|",
+						";",
+						":",
+						"s", -- Space
+						"t", -- Tab
+					},
+				})
+			end,
+		},
 		"ConradIrwin/vim-bracketed-paste",
-		"tpope/vim-repeat",
-		"lambdalisue/vim-protocol",
+		"alvan/vim-closetag",
+		"google/vim-searchindex",
 		"justinmk/vim-gtfo",
-		"tpope/vim-surround",
-		"tpope/vim-unimpaired",
+		"lambdalisue/reword.vim",
+		"lambdalisue/suda.vim",
+		"lambdalisue/vim-protocol",
+		"machakann/vim-highlightedyank",
+		"tpope/vim-afterimage",
 		"tpope/vim-apathy",
 		"tpope/vim-eunuch",
 		"tpope/vim-jdaddy",
-		"tpope/vim-afterimage",
-		"google/vim-searchindex",
-		"lambdalisue/reword.vim",
-		"alvan/vim-closetag",
+		"tpope/vim-repeat",
+		"tpope/vim-surround",
+		"tpope/vim-unimpaired",
 	})
 
 	P.installed = true
