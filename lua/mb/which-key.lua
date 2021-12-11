@@ -8,6 +8,26 @@ function P.wk_config()
 	local gl = require("gitlinker")
 	local gla = require("gitlinker.actions")
 
+	-- alt modes
+	wk.register({
+		["<leader>"] = {
+			g = {
+				l = {
+					function()
+						gl.get_buf_range_url("v", {
+							action_callback = gla.open_in_browser,
+						})
+					end,
+					"Web Link",
+					mode = "v",
+				},
+			},
+			c = {
+				s = { "<cmd>Sort<cr>", "Sort", mode = "v" },
+			},
+		},
+	})
+
 	wk.register({
 		["<leader>"] = {
 			[";"] = { [[<cmd>Telescope find_files<cr>]], "Find File" },
@@ -94,6 +114,7 @@ function P.wk_config()
 				D = { [[<cmd>Telescope lsp_document_diagnostics<cr>]], "Document Diagnostics" },
 				w = { [[<cmd>Telescope lsp_workspace_diagnostics<cr>]], "Workspace Diagnostics" },
 				c = { "<cmd>CodeActionMenu<cr>", "Code Actions" },
+				s = { "<cmd>Sort<cr>", "Sort" },
 			},
 			b = {
 				name = "+buffers",
@@ -143,15 +164,6 @@ function P.wk_config()
 					end,
 					"Web Link",
 					silent = true,
-				},
-				L = {
-					function()
-						gl.get_buf_range_url("v", {
-							action_callback = gla.open_in_browser,
-						})
-					end,
-					"Web Link",
-					mode = "v",
 				},
 			},
 			t = {
