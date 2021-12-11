@@ -90,7 +90,8 @@ function P.wk_config()
 				P = { "<cmd>NnnPicker<cr>", "Picker (from root)" },
 				r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename Variable" },
 				i = { "<cmd>lua vim.lsp.buf.hover()()<cr>", "Info (hover)" },
-				d = { [[<cmd>Telescope lsp_document_diagnostics<cr>]], "Document Diagnostics" },
+				d = { "<cmd>lua vim.diagnostics.open_float()<cr>", "Open Diagnostic" },
+				D = { [[<cmd>Telescope lsp_document_diagnostics<cr>]], "Document Diagnostics" },
 				w = { [[<cmd>Telescope lsp_workspace_diagnostics<cr>]], "Workspace Diagnostics" },
 				c = { "<cmd>CodeActionMenu<cr>", "Code Actions" },
 			},
@@ -109,11 +110,18 @@ function P.wk_config()
 				k = { [[<cmd>Telescope keymaps<cr>]], "Keymap" },
 				q = { [[<cmd>Telescope quickfix<cr>]], "QuickFix" },
 				o = { [[<cmd>Telescope quickfix<cr>]], "Vim Options" },
-				r = { "<cmd>SudaRead<cr>", "Read file with sudo" },
-				w = { "<cmd>SudaWrite<cr>", "Write file with sudo" },
-				s = { "<cmd>PackerSync<cr>", "Sync Plugins" },
-				p = { "<cmd>PackerCompile<cr>", "Compile Plugins" },
 				v = { "<cmd>VsnipOpenEdit<cr>", "VSnip" },
+				w = { "<cmd>WinShift<cr>", "Move Window" },
+				s = {
+					name = "+sudo",
+					r = { "<cmd>SudaRead<cr>", "Read file with sudo" },
+					w = { "<cmd>SudaWrite<cr>", "Write file with sudo" },
+				},
+				p = {
+					name = "+packer",
+					p = { "<cmd>PackerSync<cr>", "Sync Plugins" },
+					c = { "<cmd>PackerCompile<cr>", "Compile Plugins" },
+				},
 				l = {
 					name = "+lsp",
 					f = { [[<cmd>LspInfo<cr>]], "Info" },
@@ -181,6 +189,7 @@ function P.install(use)
 	end
 
 	require("mb.git").install(use)
+	require("mb.core").install(use)
 
 	use({ "folke/which-key.nvim", config = P.wk_config })
 
