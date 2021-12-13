@@ -1,7 +1,12 @@
 local P = { installed = false }
 
 function P.null_config()
-	require("null-ls").config({
+	require("null-ls").setup({
+		on_attach = function(client)
+			if client.resolved_capabilities.document_formatting then
+				vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+			end
+		end,
 		sources = {
 			require("null-ls").builtins.formatting.cmake_format,
 			require("null-ls").builtins.formatting.codespell,
@@ -21,14 +26,6 @@ function P.null_config()
 			require("null-ls").builtins.diagnostics.golangci_lint,
 			require("null-ls").builtins.code_actions.proselint,
 		},
-	})
-
-	require("lspconfig")["null-ls"].setup({
-		on_attach = function(client)
-			if client.resolved_capabilities.document_formatting then
-				vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-			end
-		end,
 	})
 end
 
@@ -61,6 +58,12 @@ function P.inst_config()
 
 	lsp_installer.on_server_ready(function(server)
 		local function common_on_attach(client, bufnr)
+			require("lsp_signature").on_attach({
+				bind = true, -- This is mandatory, otherwise border config won't get registered.
+				handler_opts = {
+					border = "rounded",
+				},
+			}, bufnr)
 			if server.name == "jsonls" or server.name == "tsserver" then
 				client.resolved_capabilities.document_formatting = false
 				client.resolved_capabilities.document_range_formatting = false
@@ -88,6 +91,7 @@ function P.install(use)
 	use({
 		{ "neovim/nvim-lspconfig", config = P.lsp_config },
 		"nvim-lua/lsp-status.nvim",
+		"ray-x/lsp_signature.nvim",
 		{ "williamboman/nvim-lsp-installer", config = P.inst_config },
 		{ "jose-elias-alvarez/null-ls.nvim", config = P.null_config },
 		{ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
