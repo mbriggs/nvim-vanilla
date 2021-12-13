@@ -176,12 +176,12 @@ function P.wk_config()
 			},
 			x = {
 				name = "+trouble",
-				x = { "<cmd>LspTroubleToggle<cr>", "Toggle Trouble" },
-				w = { "<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>", "Toggle Workspace Diagnostics" },
-				d = { "<cmd>LspTroubleToggle lsp_document_diagnostics<cr>", "Toggle Document Diagnostics" },
-				r = { "<cmd>LspTroubleToggle lsp_references<cr>", "Toggle References" },
-				q = { "<cmd>LspTroubleToggle quickfix<cr>", "Toggle QuickFix" },
-				l = { "<cmd>LspTroubleToggle loclist<cr>", "Toggle Location List" },
+				x = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
+				w = { "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "Toggle Workspace Diagnostics" },
+				d = { "<cmd>TroubleToggle lsp_document_diagnostics<cr>", "Toggle Document Diagnostics" },
+				r = { "<cmd>TroubleToggle lsp_references<cr>", "Toggle References" },
+				q = { "<cmd>TroubleToggle quickfix<cr>", "Toggle QuickFix" },
+				l = { "<cmd>TroubleToggle loclist<cr>", "Toggle Location List" },
 				t = { "<cmd>TodoTrouble<cr>", "Toggle TODOs" },
 			},
 			q = {
