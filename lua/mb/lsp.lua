@@ -94,7 +94,6 @@ function P.install(use)
 		"ray-x/lsp_signature.nvim",
 		{ "williamboman/nvim-lsp-installer", config = P.inst_config },
 		{ "jose-elias-alvarez/null-ls.nvim", config = P.null_config },
-		{ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
 		{ "folke/lsp-trouble.nvim", requires = "kyazdani42/nvim-web-devicons", config = P.tbl_config },
 	})
 

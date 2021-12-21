@@ -26,13 +26,14 @@ return require("packer").startup({
 		require("mb.completion").install(use)
 		require("mb.syntax").install(use)
 		require("mb.motion").install(use)
+		require("mb.coc").install(use)
 		require("mb.syntax").install(use)
 		require("mb.core").install(use)
 		require("mb.telescope").install(use)
 		require("mb.explorer").install(use)
 		require("mb.git").install(use)
 		require("mb.tmux").install(use)
-		require("mb.lsp").install(use)
+		-- require("mb.lsp").install(use)
 		require("mb.colors").install(use)
 	end,
 	config = {

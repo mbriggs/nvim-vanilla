@@ -25,6 +25,7 @@ local function ts_config()
   }
 
   t.load_extension('fzf')
+  t.load_extension('coc')
   -- t.load_extension('dap')
 end
 
@@ -38,6 +39,7 @@ function P.install(use)
       'nvim-lua/popup.nvim',
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-dap.nvim',
+     'fannheyward/telescope-coc.nvim',
       {'nvim-telescope/telescope-fzf-native.nvim',
         run = [[make]]
       },

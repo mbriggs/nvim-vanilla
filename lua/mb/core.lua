@@ -1,9 +1,5 @@
 local P = { installed = false }
 
-function P.alpha_config()
-	require("alpha").setup(require("alpha.themes.startify").opts)
-end
-
 function P.ap_config()
 	local ap = require("nvim-autopairs")
 
@@ -236,7 +232,6 @@ function P.install(use)
 		},
 		{ "andymass/vim-matchup", config = P.mu_config },
 		{ "sindrets/winshift.nvim", config = P.ws_config },
-		{ "goolord/alpha-nvim", config = P.alpha_config },
 		{
 			"sQVe/sort.nvim",
 			config = function()
@@ -253,7 +248,6 @@ function P.install(use)
 			end,
 		},
 		"ConradIrwin/vim-bracketed-paste",
-		"alvan/vim-closetag",
 		"google/vim-searchindex",
 		"justinmk/vim-gtfo",
 		"lambdalisue/reword.vim",
@@ -262,7 +256,6 @@ function P.install(use)
 		"machakann/vim-highlightedyank",
 		"tpope/vim-afterimage",
 		"tpope/vim-apathy",
-		"tpope/vim-eunuch",
 		"tpope/vim-jdaddy",
 		"tpope/vim-repeat",
 		"tpope/vim-surround",

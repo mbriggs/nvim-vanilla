@@ -1,0 +1,11 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "typescript",
+    "ruby",
+    "lua",
+    "json"
+  ],
+  "suggest.enablePreview": true,
+  "suggest.enablePreselect": true,
+  "suggest.noselect": false
+}
