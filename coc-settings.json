@@ -1,11 +1,30 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
     "typescript",
+    "typescriptreact",
     "ruby",
     "lua",
     "json"
   ],
   "suggest.enablePreview": true,
   "suggest.enablePreselect": true,
-  "suggest.noselect": false
+  "suggest.noselect": false,
+  "cSpell.userWords": [
+    "Chana",
+    "Gela",
+    "Runtimes",
+    "gelaskins",
+    "hcls",
+    "headlessui",
+    "heroicons",
+    "hotspot",
+    "imagegen",
+    "magick",
+    "presigner",
+    "tailwindcss",
+    "webp"
+  ],
+  "coc.preferences.useQuickfixForLocations": true
 }

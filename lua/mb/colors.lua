@@ -5,6 +5,37 @@ function P.config()
   local o = vim.o
   local g = vim.g
 
+  cmd('let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"')
+  cmd('let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"')
+
+  o.termguicolors = true
+  o.background = 'dark'
+
+-- Default options:
+  require('kanagawa').setup({
+      undercurl = true,           -- enable undercurls
+      commentStyle = "italic",
+      functionStyle = "NONE",
+      keywordStyle = "italic",
+      statementStyle = "bold",
+      typeStyle = "NONE",
+      variablebuiltinStyle = "italic",
+      specialReturn = true,       -- special highlight for the return keyword
+      specialException = true,    -- special highlight for exception handling keywords 
+      transparent = false,        -- do not set background color
+      colors = {},
+      overrides = {},
+  })
+
+  -- setup must be called before loading
+  vim.cmd("colorscheme kanagawa")
+end
+
+function P.od_config()
+  local cmd = vim.cmd
+  local o = vim.o
+  local g = vim.g
+
   cmd([[
 " nvim-cmp visual studio code dark+ colors 
 
@@ -38,7 +69,8 @@ function P.install(use)
     return
   end
 
-  use { "navarasu/onedark.nvim", config = P.config }
+  use { "navarasu/onedark.nvim", config = P.od_config }
+  -- use { "rebelot/kanagawa.nvim", config = P.config }
 
   P.installed = true
 end

@@ -3,7 +3,6 @@ local P = { installed = false }
 local function ts_config()
   local t = require('telescope')
   local actions = require('telescope.actions')
-  local trouble = require("trouble.providers.telescope")
 
   t.setup{
     defaults = {
@@ -11,7 +10,6 @@ local function ts_config()
       mappings = {
         i = {
           ["<esc>"] = actions.close,
-          ["<c-t>"] = trouble.open_with_trouble,
         },
       }
     },
