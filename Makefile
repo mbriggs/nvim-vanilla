@@ -5,6 +5,7 @@ link:
 dependencies:
 	brew install ripgrep
 	brew install nnn
+	brew install --build-from-source mhanberg/zk/zk
 	brew install codespell
 	brew install shellfmt
 	brew install sqlformat
