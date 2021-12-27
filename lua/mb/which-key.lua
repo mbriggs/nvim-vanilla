@@ -41,7 +41,7 @@ function P.wk_config()
 			[">"] = { [[<cmd>Telescope lsp_references<cr>]], "Go to other references" },
 			[","] = { "<cmd>NnnPicker %:p:h<cr>", "File Picker" },
 			["|"] = { "<cmd>NnnExplorer %:p:h<cr>", "Explore Files" },
-			["/"] = { [[<cmd>print("Current Buffer: " .. vim.api.nvim_buf_get_name(0))<cr>]], "Current Buffer" },
+			["/"] = { [[<cmd>lua print("Current Buffer: " .. vim.api.nvim_buf_get_name(0))<cr>]], "Current Buffer" },
 			z = {
 				name = "+zettelkasten",
 				["\\"] = { [[<cmd>lua require("mb.zk").reindex()<cr>]], "Reindex" },
@@ -118,6 +118,7 @@ function P.wk_config()
 				P = { "<cmd>NnnPicker<cr>", "Picker (from root)" },
 				r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename Variable" },
 				i = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Info (hover)" },
+				k = { "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", "Show line diagnostics" },
 				d = { [[<cmd>Telescope lsp_document_diagnostics<cr>]], "Document Diagnostics" },
 				w = { [[<cmd>Telescope lsp_workspace_diagnostics<cr>]], "Workspace Diagnostics" },
 				a = { [[<cmd>Telescope lsp_code_actions<cr>]], "Code Actions" },

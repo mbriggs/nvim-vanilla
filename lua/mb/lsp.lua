@@ -31,6 +31,7 @@ end
 
 function P.lsp_config()
 	local utils = require("lspconfig.util")
+
 	require("lspconfig").solargraph.setup({
 		cmd = { "solargraph", "stdio" },
 		filetypes = { "ruby" },
@@ -72,10 +73,34 @@ function P.inst_config()
 
 		local opts = {
 			on_attach = common_on_attach,
+			handlers = {
+				["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+			},
 		}
+		vim.cmd([[
+      highlight DiagnosticLineNrError guibg=#993939 guifg=#e86671 gui=bold
+      highlight DiagnosticLineNrWarn guibg=#93691d guifg=#e5c07b gui=bold
+      highlight DiagnosticLineNrInfo guibg=#2b6f77 guifg=#56b6c2 gui=bold
+      highlight DiagnosticLineNrHint guibg=#8a3fa0 guifg=#c678dd gui=bold
 
+      sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
+      sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
+      sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
+      sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
+    ]])
+		vim.diagnostic.config({
+			virtual_text = false,
+			float = {
+				header = false,
+				source = false,
+				border = "rounded",
+			},
+		})
 		server:setup(opts)
 		vim.cmd([[ do User LspAttachBuffers ]])
+		vim.cmd(
+			[[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor", border=rounded})]]
+		)
 	end)
 end
 

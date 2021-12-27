@@ -203,6 +203,7 @@ function P.install(use)
 	require("mb.syntax").install(use)
 
 	vim.g.matchup_matchparen_offscreen = { method = "popup" }
+	vim.g.cursorhold_updatetime = 10
 
 	use({
 		{ "windwp/nvim-autopairs", config = P.ap_config },
@@ -260,6 +261,7 @@ function P.install(use)
 		"tpope/vim-repeat",
 		"tpope/vim-surround",
 		"tpope/vim-unimpaired",
+		"antoinemadec/FixCursorHold.nvim",
 	})
 
 	P.installed = true
