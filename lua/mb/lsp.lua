@@ -78,10 +78,10 @@ function P.inst_config()
 			},
 		}
 		vim.cmd([[
-      highlight DiagnosticLineNrError guibg=#993939 guifg=#e86671 gui=bold
-      highlight DiagnosticLineNrWarn guibg=#93691d guifg=#e5c07b gui=bold
-      highlight DiagnosticLineNrInfo guibg=#2b6f77 guifg=#56b6c2 gui=bold
-      highlight DiagnosticLineNrHint guibg=#8a3fa0 guifg=#c678dd gui=bold
+      highlight DiagnosticLineNrError guibg=#6b0f17 guifg=#993939 gui=bold
+      highlight DiagnosticLineNrWarn guibg=#49340e guifg=#93691d gui=bold
+      highlight DiagnosticLineNrInfo guibg=#15373b guifg=#2b6f77 gui=bold
+      highlight DiagnosticLineNrHint guibg=#441f4f guifg=#8a3fa0 gui=bold
 
       sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
       sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
