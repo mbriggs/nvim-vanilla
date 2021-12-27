@@ -50,8 +50,8 @@ function P.wk_config()
 				Z = { [[<cmd>lua require("mb.zk").yesterday()<cr>]], "Yesterday" },
 				w = { [[<cmd>lua require("mb.zk").thisWeek()<cr>]], "This Week" },
 				W = { [[<cmd>lua require("mb.zk").lastWeek()<cr>]], "Last Week" },
-				l = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Follow Link" },
-				c = { "<cmd>e ~/Notes/.zk/config.toml", "Config" },
+				l = { "<cmd>ZkNewLink<CR>", "Create Link" },
+				c = { "<cmd>e ~/Notes/.zk/config.toml<cr>", "Config" },
 			},
 			f = {
 				name = "+find",
