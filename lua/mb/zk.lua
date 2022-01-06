@@ -1,28 +1,30 @@
 local P = { installed = false }
 
 function P.config()
-	require("zk").setup()
+	require("zk").setup({
+		picker = "telescope",
+	})
 end
 
 function P.today()
-	require("zk").new(nil, { date = "today", dir = "journal/daily" })
+	require("zk").new({ date = "today", dir = "journal/daily" })
 end
 
 function P.yesterday()
-	require("zk").new(nil, { date = "yesterday", dir = "journal/daily" })
+	require("zk").new({ date = "yesterday", dir = "journal/daily" })
 end
 
 function P.thisWeek()
-	require("zk").new(nil, { date = "today", dir = "journal/weekly" })
+	require("zk").new({ date = "today", dir = "journal/weekly" })
 end
 
 function P.lastWeek()
-	require("zk").new(nil, { date = "last week", dir = "journal/weekly" })
+	require("zk").new({ date = "last week", dir = "journal/weekly" })
 end
 
 function P.project()
 	local currentProject = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-	require("zk").new(nil, { title = currentProject, dir = "project" })
+	require("zk").new({ title = currentProject, dir = "project" })
 end
 
 function P.reindex()

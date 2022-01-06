@@ -51,6 +51,9 @@ function P.wk_config()
 				w = { [[<cmd>lua require("mb.zk").thisWeek()<cr>]], "This Week" },
 				W = { [[<cmd>lua require("mb.zk").lastWeek()<cr>]], "Last Week" },
 				l = { "<cmd>ZkNewLink<CR>", "Create Link" },
+				f = { "<cmd>ZkNotes<cr>", "Find Note" },
+				t = { "<cmd>ZkTags<cr>", "Find Tags" },
+				b = { "<cmd>ZkBacklinks<cr>", "Backlinks" },
 				c = { "<cmd>e ~/Notes/.zk/config.toml<cr>", "Config" },
 			},
 			f = {

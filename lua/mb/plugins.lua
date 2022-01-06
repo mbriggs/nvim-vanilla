@@ -23,8 +23,9 @@ return require("packer").startup({
 		--- features
 		require("mb.which-key").install(use)
 		require("mb.snippets").install(use)
-		require("mb.completion").install(use)
 		require("mb.syntax").install(use)
+		require("mb.org").install(use)
+		require("mb.completion").install(use)
 		require("mb.motion").install(use)
 		require("mb.lsp").install(use)
 		-- require("mb.coc").install(use)

@@ -23,7 +23,6 @@ local function ts_config()
 	})
 
 	t.load_extension("fzf")
-	t.load_extension("zk")
 	-- t.load_extension('dap')
 end
 

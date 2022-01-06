@@ -1,21 +1,61 @@
 local P = { installed = false }
 
-function P.ap_config()
-	local ap = require("nvim-autopairs")
+function P.dial_config()
+	-- local dial = require("dial")
+	--
+	-- dial.config.searchlist.normal = {
+	-- 	"number#decimal",
+	-- 	"number#hex",
+	-- 	"number#binary",
+	-- 	"date#[%Y/%m/%d]",
+	-- 	"markup#markdown#header",
+	-- }
 
-	ap.setup({})
-	ap.add_rules(require("nvim-autopairs.rules.endwise-elixir"))
-	ap.add_rules(require("nvim-autopairs.rules.endwise-lua"))
-	ap.add_rules(require("nvim-autopairs.rules.endwise-ruby"))
+	vim.cmd([[
+nmap <C-a> <Plug>(dial-increment)
+nmap <C-x> <Plug>(dial-decrement)
+vmap <C-a> <Plug>(dial-increment)
+vmap <C-x> <Plug>(dial-decrement)
+vmap g<C-a> <Plug>(dial-increment-additional)
+vmap g<C-x> <Plug>(dial-decrement-additional)
+  ]])
+end
 
-	require("nvim-autopairs").setup({
-		map_cr = true, --  map <CR> on insert mode
-		map_complete = true, -- it will auto insert `(` (map_char) after select function or method item
-		auto_select = true, -- automatically select the first item
-		insert = false, -- use insert confirm behavior instead of replace
-		map_char = { -- modifies the function or method delimiter by filetypes
-			all = "(",
-			tex = "{",
+function P.rh_config()
+	require("range-highlight").setup({
+		highlight = "Visual",
+		highlight_with_out_range = {
+			d = true,
+			delete = true,
+			m = true,
+			move = true,
+			y = true,
+			yank = true,
+			c = true,
+			change = true,
+			j = true,
+			join = true,
+			["<"] = true,
+			[">"] = true,
+			s = true,
+			subsititue = true,
+			sno = true,
+			snomagic = true,
+			sm = true,
+			smagic = true,
+			ret = true,
+			retab = true,
+			t = true,
+			co = true,
+			copy = true,
+			ce = true,
+			center = true,
+			ri = true,
+			right = true,
+			le = true,
+			left = true,
+			sor = true,
+			sort = true,
 		},
 	})
 end
@@ -206,7 +246,6 @@ function P.install(use)
 	vim.g.cursorhold_updatetime = 10
 
 	use({
-		{ "windwp/nvim-autopairs", config = P.ap_config },
 		{ "ironhouzi/starlite-nvim", config = P.sl_config },
 		{ "nacro90/numb.nvim", config = P.numb_config },
 		{ "norcalli/nvim-colorizer.lua", config = P.clr_config },
@@ -248,6 +287,21 @@ function P.install(use)
 				})
 			end,
 		},
+		{
+			"winston0410/range-highlight.nvim",
+			requires = {
+				"winston0410/cmd-parser.nvim",
+			},
+			config = P.rh_config,
+		},
+		{
+			"monaqa/dial.nvim",
+			config = P.dial_config,
+		},
+		"kana/vim-textobj-user",
+		"Julian/vim-textobj-variable-segment",
+		"glts/vim-textobj-comment",
+		"kana/vim-textobj-entire",
 		"ConradIrwin/vim-bracketed-paste",
 		"google/vim-searchindex",
 		"justinmk/vim-gtfo",

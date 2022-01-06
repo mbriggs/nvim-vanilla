@@ -23,14 +23,6 @@ function P.cmp_config()
 		true
 	)
 
-	-- disable completion in certain buffers
-	vim.api.nvim_exec(
-		[[
-    autocmd FileType markdown lua require('cmp').setup.buffer({ enabled = false })
-    ]],
-		true
-	)
-
 	cmp.setup({
 		snippet = {
 			expand = function(args)
