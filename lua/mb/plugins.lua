@@ -33,10 +33,10 @@ return require("packer").startup({
 		require("mb.core").install(use)
 		require("mb.zk").install(use)
 		require("mb.telescope").install(use)
-		require("mb.explorer").install(use)
 		require("mb.git").install(use)
 		require("mb.tmux").install(use)
 		require("mb.colors").install(use)
+		require("mb.explorer").install(use)
 	end,
 	config = {
 		profile = {

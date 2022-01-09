@@ -75,7 +75,7 @@ highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
 		code_style = {
 			comments = "italic",
 			keywords = "none",
-			functions = "bold",
+			functions = "none",
 			strings = "none",
 			variables = "none",
 		},
