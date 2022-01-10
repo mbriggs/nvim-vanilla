@@ -16,6 +16,7 @@ o.undodir = home .. "/.config/nvim/backup"
 o.undofile = true
 o.undolevels = 1000
 o.undoreload = 10000
+o.cursorline = true
 o.backspace = "indent,eol,start"
 o.fillchars = "stl:━,stlnc:━,vert:│"
 o.statusline = "%#VertSplit#"

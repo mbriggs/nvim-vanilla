@@ -36,6 +36,7 @@ function P.install(use)
 			"MunifTanjim/nui.nvim",
 		},
 		config = function()
+			vim.cmd([[highlight! NeoTreeCursorLine guibg=#31353f]])
 			require("neo-tree").setup({
 				popup_border_style = "rounded",
 				filesystem = {
@@ -47,7 +48,6 @@ function P.install(use)
 							["s"] = "open_vsplit",
 							["C"] = "close_node",
 							["<bs>"] = "navigate_up",
-							["."] = "set_root",
 							["H"] = "toggle_hidden",
 							["I"] = "toggle_gitignore",
 							["R"] = "refresh",
@@ -60,11 +60,19 @@ function P.install(use)
 							["c"] = "copy_to_clipboard",
 							["x"] = "cut_to_clipboard",
 							["p"] = "paste_from_clipboard",
+							["q"] = function()
+								require("neo-tree").close_all()
+							end,
 						},
+					},
+					filters = {
+						show_hidden = true,
+						respect_gitignore = false,
 					},
 				},
 			})
-			vim.cmd([[nnoremap \ :NeoTreeReveal<cr>]])
+			vim.cmd([[nnoremap \ :NeoTreeFloatToggle<cr>]])
+			vim.cmd([[nnoremap \\| :NeoTreeRevealToggle<cr>]])
 		end,
 	})
 end
