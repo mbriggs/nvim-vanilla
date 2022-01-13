@@ -36,7 +36,6 @@ function P.install(use)
 			"MunifTanjim/nui.nvim",
 		},
 		config = function()
-			vim.cmd([[highlight! NeoTreeCursorLine guibg=#31353f]])
 			require("neo-tree").setup({
 				popup_border_style = "rounded",
 				filesystem = {
