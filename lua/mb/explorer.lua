@@ -1,6 +1,4 @@
-local P = { installed = false }
-
-local g = vim.g
+local P = {}
 
 local function nnn_config()
 	local function copy_to_clipboard(lines)

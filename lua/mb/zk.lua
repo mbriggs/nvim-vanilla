@@ -1,10 +1,4 @@
-local P = { installed = false }
-
-function P.config()
-	require("zk").setup({
-		picker = "telescope",
-	})
-end
+local P = {}
 
 function P.today()
 	require("zk").new({ date = "today", dir = "journal/daily" })
@@ -32,17 +26,15 @@ function P.reindex()
 end
 
 function P.install(use)
-	if P.installed then
-		return
-	end
-
 	use({
 		"mickael-menu/zk-nvim",
 		requires = { "neovim/nvim-lspconfig" },
-		config = P.config,
+		config = function()
+			require("zk").setup({
+				picker = "telescope",
+			})
+		end,
 	})
-
-	P.installed = true
 end
 
 return P
