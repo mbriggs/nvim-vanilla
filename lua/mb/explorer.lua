@@ -70,6 +70,7 @@ function P.install(use)
 			})
 			vim.cmd([[nnoremap \ :NeoTreeFloatToggle<cr>]])
 			vim.cmd([[nnoremap \\| :NeoTreeRevealToggle<cr>]])
+			vim.cmd([[hi NeoTreeDirectoryIcon guibg=NONE guifg=#73cef4]])
 		end,
 	})
 end
