@@ -2,78 +2,19 @@ local P = {}
 
 function P.install(use)
 	use({
-		"phaazon/hop.nvim",
+		"rlane/pounce.nvim",
 		config = function()
-			local hop = require("hop")
-			local dir = require("hop.hint").HintDirection
 			local k = vim.keymap
+			k.nmap({ "s", "<cmd>Pounce<CR>" })
+			k.vmap({ "s", "<cmd>Pounce<CR>" })
+			k.omap({ "gs", "<cmd>Pounce<CR>" })
 
-			hop.setup()
-
-			k.nnoremap({
-				"s",
-				function()
-					hop.hint_char2({ direction = dir.AFTER_CURSOR })
-				end,
-			})
-			k.nnoremap({
-				"S",
-				function()
-					hop.hint_char2({ direction = dir.BEFORE_CURSOR })
-				end,
-			})
-			k.nnoremap({
-				"gs",
-				function()
-					hop.hint_char1({ direction = dir.AFTER_CURSOR })
-				end,
-			})
-			k.nnoremap({
-				"gS",
-				function()
-					hop.hint_char1({ direction = dir.BEFORE_CURSOR })
-				end,
-			})
-			k.nnoremap({
-				"gl",
-				function()
-					hop.hint_lines()
-				end,
-			})
-
-			k.vnoremap({
-				"s",
-				function()
-					hop.hint_char2({ direction = dir.AFTER_CURSOR })
-				end,
-			})
-			k.vnoremap({
-				"S",
-				function()
-					hop.hint_char2({ direction = dir.BEFORE_CURSOR })
-				end,
-			})
-			k.vnoremap({
-				"gs",
-				function()
-					hop.hint_char1({ direction = dir.AFTER_CURSOR })
-				end,
-			})
-			k.vnoremap({
-				"gS",
-				function()
-					hop.hint_char1({ direction = dir.BEFORE_CURSOR })
-				end,
-			})
-			k.vnoremap({
-				"gl",
-				function()
-					hop.hint_lines()
-				end,
+			require("pounce").setup({
+				accept_keys = "JFKDLSAHGNUVRBYTMICEOXWPQZ",
+				debug = false,
 			})
 		end,
 	})
-
 	use({
 		"abecodes/tabout.nvim",
 		config = function()
