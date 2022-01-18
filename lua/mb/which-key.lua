@@ -39,9 +39,13 @@ function P.install(use)
 					['"'] = { [[<cmd>sp<cr>]], "Horizontal Split" },
 					["."] = { [[<cmd>Telescope lsp_definitions<cr>]], "Go to Definition" },
 					[">"] = { [[<cmd>Telescope lsp_references<cr>]], "Go to other references" },
-					["/"] = {
+					[","] = {
 						[[<cmd>lua print("Current Buffer: " .. vim.api.nvim_buf_get_name(0))<cr>]],
 						"Current Buffer",
+					},
+					["/"] = {
+						[[<cmd>NvimTreeToggle<cr>]],
+						"Toggle Tree",
 					},
 					z = {
 						name = "+zettelkasten",
