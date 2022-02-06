@@ -122,13 +122,13 @@ function P.install(use)
 		end,
 	})
 
-	use({
-		"j-hui/fidget.nvim",
-		config = function()
-			require("fidget").setup({})
-		end,
-	})
-
+	-- use({
+	-- 	"j-hui/fidget.nvim",
+	-- 	config = function()
+	-- 		require("fidget").setup({})
+	-- 	end,
+	-- })
+	--
 	use({
 
 		"nvim-lua/lsp-status.nvim",
