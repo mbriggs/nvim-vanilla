@@ -6,7 +6,7 @@ function P.install(use)
 
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		requires = [[windwp/nvim-ts-autotag]],
+		requires = { [[windwp/nvim-ts-autotag]], [[RRethy/nvim-treesitter-endwise]] },
 		run = ":TSUpdate",
 		config = function()
 			local ts_configs = require("nvim-treesitter.configs")
@@ -31,6 +31,9 @@ function P.install(use)
 					highlight_definitions = { enable = true },
 				},
 				autotag = {
+					enable = true,
+				},
+				endwise = {
 					enable = true,
 				},
 			})

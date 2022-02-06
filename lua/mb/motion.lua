@@ -10,7 +10,8 @@ function P.install(use)
 			k.omap({ "gs", "<cmd>Pounce<CR>" })
 
 			require("pounce").setup({
-				accept_keys = "JFKDLSAHGNUVRBYTMICEOXWPQZ",
+				accept_keys = ";JFKDLSAHGNUVRBYTMICEOXWPQZ",
+				accept_best_key = "<enter>",
 				debug = false,
 			})
 		end,
