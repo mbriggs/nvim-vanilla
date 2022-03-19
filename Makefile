@@ -19,3 +19,4 @@ dependencies:
 	npm install -g @unibeautify/beautifier-sqlformat
 	npm install -g stylelint
 	gem install rubocop rubocop-rails
+	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.44.2
